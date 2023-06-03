@@ -25,12 +25,10 @@ kokotto(ココット)は、場所でつながる呟きサイトです。
 ## 設計書
   
 ## 開発環境
-- OS：macOS(Ventura)
+- OS：Linux(CentOS)
 - 言語：HTML,CSS(Saas),JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
+- フレームワーク：Ruby on Rails 6.1
 - JSライブラリ：jQuery
-- IDE：Cloud9
-- API : Geolocation API (?)
 
 ## 使用素材
 
