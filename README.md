@@ -26,9 +26,10 @@ kokotto(ココット)は、場所でつながる呟きサイトです。
   
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS(Saas),JavaScript,Ruby,SQL
+- 言語：HTML, CSS(Saas), JavaScript, Ruby 3.2.1, SQL
 - フレームワーク：Ruby on Rails 6.1
 - JSライブラリ：jQuery
+- DB：mySQL
 
 ## 使用素材
 
