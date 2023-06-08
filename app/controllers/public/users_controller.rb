@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-  def show
+  def mypage
 
   end
 

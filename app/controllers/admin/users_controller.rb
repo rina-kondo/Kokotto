@@ -2,6 +2,9 @@ class Admin::UsersController < ApplicationController
   def show
   end
 
-  def withdrawal
+  def edit
+  end
+
+  def update
   end
 end

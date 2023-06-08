@@ -1,7 +1,7 @@
 class Admin::CommentsController < ApplicationController
   def show
   end
-  def destroy
 
+  def destroy
   end
 end
