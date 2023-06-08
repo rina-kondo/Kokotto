@@ -45,6 +45,13 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'guard-livereload', '~> 2.5', require: false
+
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-minitest', require: false
+  gem 'rubocop-packaging', require: false
+  gem 'rubocop-rspec'
 end
 
 group :test do
