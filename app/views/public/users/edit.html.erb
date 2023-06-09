@@ -1,0 +1,10 @@
+<%= form_with model: @user, url: update_user_path do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <%= f.submit "更新" %>
+<% end %>
+
+<%= link_to "アカウント削除", withdrawal_path(current_user), method: :patch, data:{ confirm: "本当に消しますか？"} %>

@@ -4,19 +4,21 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in', as: 'guest_sign_in'
+  end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
   scope module: :public do
-    root to: 'homes#top'
-    get "about" => "homes#about", as: 'about'
+    root to: 'homes#about'
     patch "withdrawal" => "users#withdrawal"
     get 'mypage' => 'users#mypage'
     get 'user/information/edit', to: 'users#edit', as: 'edit_user'
     patch 'user/information', to: 'users#update', as: 'update_user'
-    resources :posts, only: [:new, :create, :show, :destroy] do
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resources :likes, only: [:create, :destroy, :index]
       resources :comments, only: [:new, :create, :destroy]
     end
