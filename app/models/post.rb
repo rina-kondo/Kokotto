@@ -9,4 +9,11 @@ class Post < ApplicationRecord
   validates :latitude, presence: true
   validates :longitude, presence: true
 
+  def display_image(width,height)
+    if image.attached?
+      image.variant(resize_to_limit: [width, height]).processed
+    else
+      nil
+    end
+  end
 end

@@ -1,2 +1,13 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+
+<div class="card">
+  <%= @post.text %><br />
+  <%= image_tag @post.display_image(200,200) %><br />
+  <%= time_ago_in_words(@post.created_at) %> ago
+    <i class="fa-solid fa-heart"></i>
+    <i class="fa-regular fa-heart"></i>
+    <i class="fa-regular fa-comment"></i>
+    <br />
+    <%= link_to post_path(@post.id), method: :delete do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+</div>

@@ -1,6 +1,14 @@
 toukou
 <% @posts.each do |post| %>
-  投稿
-  <%= post.text %>
-  <%= post.created_at %>
+  <%= link_to post_path(post.id) do %>
+    <div class="card">
+      <%= post.text %><br />
+      <%= image_tag post.display_image(200,200) %><br />
+      <%= time_ago_in_words(post.created_at) %> ago
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-regular fa-comment"></i>
+    </div>
+  <% end %>
+  <br />
 <% end %>
