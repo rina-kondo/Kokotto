@@ -5,15 +5,17 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  validates :text, presence: true, length: {maximum:200}
+  validates :user_id, presence: true
+  validates :text, presence: true, length: {maximum:50}
   validates :latitude, presence: true
   validates :longitude, presence: true
 
   def display_image(width,height)
-    if image.attached?
-      image.variant(resize_to_limit: [width, height]).processed
-    else
-      nil
-    end
+    image.attached? ? image.variant(resize_to_limit: [width, height]).processed : nil
   end
+
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
+  end
+
 end

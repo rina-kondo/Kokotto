@@ -1,4 +1,10 @@
 <header>
+  <li>
+    <%= link_to "LOGO", root_path %>
+  </li>
+  <li>
+    <%= link_to "Kokottoについて", root_path %>
+  </li>
   <% if user_signed_in? %>
     <li>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -14,4 +20,7 @@
       <%= link_to 'ゲストログイン（閲覧用）', guest_sign_in_path, method: :post %>
     </div>
   <% end %>
+  <li>
+    <%= "お知らせ" %>
+  </li>
 </header>

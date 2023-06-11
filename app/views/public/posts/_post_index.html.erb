@@ -1,5 +1,5 @@
-toukou
-<% @posts.each do |post| %>
+
+<% posts.each do |post| %>
   <%= link_to post_path(post.id) do %>
     <div class="card">
       <%= post.text %><br />

@@ -1,2 +1,7 @@
-<h1>Public::Comment#new</h1>
-<p>Find me in app/views/public/comment/new.html.erb</p>
+<h3>コメント投稿フォーム</h3>
+
+<%= form_with model: @comment, url: comments_path(params[:post_id]) do |f| %>
+  <%= f.text_field :text, autofocus: true, placeholder: "コメントを入力" %>
+  <%= f.submit "コメントする" %>
+<% end %>
+

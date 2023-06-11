@@ -3,11 +3,40 @@
   <%= @post.text %><br />
   <%= image_tag @post.display_image(200,200) %><br />
   <%= time_ago_in_words(@post.created_at) %> ago
-    <i class="fa-solid fa-heart"></i>
-    <i class="fa-regular fa-heart"></i>
-    <i class="fa-regular fa-comment"></i>
-    <br />
-    <%= link_to post_path(@post.id), method: :delete do %>
-      <i class="fa-solid fa-trash"></i>
+
+  <% if @post.liked_by?(current_user) %>
+    <%= link_to post_like_path(@post.id), method: :delete do %>
+      <i class="fa-solid fa-heart"></i>
+      <%= @post.likes.count %>
     <% end %>
+  <% else %>
+    <%= link_to post_like_path(@post.id), method: :post do %>
+      <i class="fa-regular fa-heart"></i>
+      <%= @post.likes.count %>
+    <% end %>
+  <% end %>
+
+  <%= link_to new_comment_path(@post.id) do %>
+    <i class="fa-regular fa-comment"></i>
+    <%= @post.comments.count %>
+  <% end %>
+
+  <br />
+
+  <%= link_to post_path(@post.id), method: :delete do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+
+  <br />
+  コメント
+  <% @post.comments.each do |comment| %>
+
+    <div class="comment-card">
+      <%= comment.text %><br />
+      <%= time_ago_in_words(comment.created_at) %> ago
+      <%= link_to comment_path(@post.id, comment.id), method: :delete do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </div>
+  <% end %>
 </div>

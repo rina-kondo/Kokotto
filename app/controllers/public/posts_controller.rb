@@ -21,7 +21,6 @@ class Public::PostsController < ApplicationController
     long_end = params[:long_end] || 140
 
     @posts = Post.where(latitude: lat_start..lat_end, longitude: long_start..long_end).order(created_at: :desc)
-
   end
 
   def show

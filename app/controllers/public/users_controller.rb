@@ -2,7 +2,11 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def mypage
-    @activities = current_user.activities　# 投稿とコメント一覧
+    # @activities = current_user.activities　# 投稿とコメント一覧
+  end
+
+  def liked_posts
+    @posts = current_user.liked_posts.order(created_at: :desc)
   end
 
   def edit
@@ -37,5 +41,18 @@ class Public::UsersController < ApplicationController
     if current_user.name == "guest_user"
       redirect_to root_path
     end
+  end
+
+  def activities
+    query = <<-SQL
+      (SELECT 'Post' as record_type, id, created_at FROM posts WHERE user_id = :user_id)
+      UNION ALL
+      (SELECT 'Comment' as record_type, id, created_at FROM comments WHERE user_id = :user_id)
+      ORDER BY created_at DESC
+    SQL
+
+    ActiveRecord::Base.connection.execute(
+      ActiveRecord::Base.send(:sanitize_sql_array, [query, user_id: id])
+    )
   end
 end

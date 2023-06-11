@@ -17,9 +17,12 @@ Rails.application.routes.draw do
     patch "withdrawal" => "users#withdrawal"
     get 'mypage' => 'users#mypage'
     get 'user/information/edit', to: 'users#edit', as: 'edit_user'
+    get 'user/liked_posts', to: 'users#liked_posts', as: 'liked_posts'
     patch 'user/information', to: 'users#update', as: 'update_user'
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
-      resources :likes, only: [:create, :destroy, :index]
+      resource :like, only: [:create, :destroy]
+    end
+    scope '/posts/:post_id' do
       resources :comments, only: [:new, :create, :destroy]
     end
   end

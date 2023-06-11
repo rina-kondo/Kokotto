@@ -16,6 +16,11 @@
       <%= message %>
     <% end %>
     <%= render "layouts/header" %>
+    <%= render "layouts/menu" %>
+    <%= link_to new_post_path do %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
+    <br />
     <%= yield %>
   </body>
 </html>
