@@ -1,8 +1,30 @@
 <h3>投稿フォーム</h3>
 
+<div id="input-tag"></div>
 <input id="input_text", autofocus: true, placeholder="つぶやきを入力" /> <br />
 <input id="input_image", type="file", accept=".jpg,.png,.JPEG,.PNG">
-<button id="btn">つぶやく</button>
 
+<h4>タグ一覧</h4>
+<div class="tag-cagotery-list">
+  <button class="category">feeling</button>
+  <button class="category">food</button>
+  <button class="category">hobby</button>
+  <button class="category">animal</button>
+  <button class="category">life</button>
+  <button class="category">nature</button>
+  <button class="category">other</button>
+</div>
+
+<div id="display"></div>
+
+<div id="imageContainer">
+  <% image_assets("feeling").each do |tag| %>
+    <div id="tag">
+      <%= image_tag tag, size: "100x100" %>
+    </div>
+  <% end %>
+</div>
+
+<button id="btn">つぶやく</button>
 <br /><br />
 <i class="fa-regular fa-image"></i>

@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  include Public::PostsHelper
 
   def new
     @post = Post.new
@@ -32,6 +33,14 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path(current_user.id)
     else
       render :show, notice: "削除に失敗しました"
+    end
+  end
+
+  def image_paths
+    category = params[:category]
+    image_paths = image_assets(category)
+    respond_to do |format|
+      format.json { render json: image_paths }
     end
   end
 
