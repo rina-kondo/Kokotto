@@ -1,5 +1,14 @@
+
+<%= current_user.name %>
 つぶやきりれき
 
-<%= link_to edit_user_path(current_user) do %>
+<% @activities.each do |activity| %>
+  <%= activity["text"] %>
+  <% if activity["image"] %>
+    <%= image_tag activity["image"], alt: "Activity image" %>
+  <% end %>
+<% end %>
+
+<%= link_to edit_user_path(current_user.id) do %>
   <i class="fa-solid fa-gear"></i>
 <% end %>

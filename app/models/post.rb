@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   validates :longitude, presence: true
 
   def display_image(width,height)
-    image.attached? ? image.variant(resize_to_limit: [width, height]).processed : nil
+    image.attached? ? image.variant(resize_to_limit: [width, height]).processed : "";
   end
 
   def liked_by?(user)

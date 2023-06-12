@@ -1,2 +1,38 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h2>User Infomatin</h2>
+<h3>ユーザー: <%= @user.name %></h3>
+<%= @user.is_deleted ? "退会" : "有効" %>
+<br />
+アカウント開始日: <%= l @user.created_at, format: :short %><br />
+メールアドレス: <%= @user.email %><br />
+
+
+<h2>Post List</h2>
+<% @posts.each do |post| %>
+  <div class="card">
+    <%= post.text %><br />
+    <%= image_tag post.display_image(200,200) %><br />
+    <%= time_ago_in_words(post.created_at) %> ago
+
+    <i class="fa-solid fa-heart"></i>
+    <%= post.likes.count %>
+
+    <i class="fa-regular fa-comment"></i>
+    <%= post.comments.count %>
+  </div>
+  <%= link_to admin_post_path(post.id), method: :delete do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+  <br />
+<% end %>
+
+<h2>Comment List</h2>
+<% @comments.each do |comment| %>
+  <div class="card">
+    <%= comment.text %><br />
+    <%= time_ago_in_words(comment.created_at) %> ago
+  </div>
+  <%= link_to admin_comment_path(comment.id), method: :delete do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+  <br />
+<% end %>

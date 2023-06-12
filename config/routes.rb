@@ -28,8 +28,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get '/' => 'homes#top', as: "admin"
+    get '/' => 'users#index'
+    patch "deactivate" => "users#deactivate"
+    patch "reactivate" => "users#reactivate"
     resources :users, only: [:show, :edit, :update]
+    resources :posts, only: [:destroy]
     resources :comments, only: [:show, :destroy]
   end
 

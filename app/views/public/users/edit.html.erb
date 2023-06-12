@@ -1,7 +1,11 @@
 <%= form_with model: @user, url: update_user_path do |f| %>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </div>
 
   <%= f.submit "更新" %>

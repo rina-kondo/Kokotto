@@ -13,7 +13,9 @@ window.onload = function () {
 
       const formData = new FormData();
       formData.append('text', inputText.value);
-      formData.append('image', inputImage.files[0]);
+      if (inputImage.files.length > 0) {
+        formData.append('image', inputImage.files[0]);
+      }
       formData.append('latitude', lat);
       formData.append('longitude', lng);
 
@@ -25,21 +27,32 @@ window.onload = function () {
         body: formData
       });
 
-      if (!response.ok) throw new Error('Network response was not ok');
-
       const data = await response.json();
-      console.log(data.message);
-      window.location.href = '/posts';
 
+      if (response.ok) {
+        console.log(data.message);
+        window.location.href = '/posts';
+      } else {
+        console.error(data.message);
+
+        const flash = document.querySelector('div.flash')
+
+        flash.innerHTML = ''
+
+        const message = document.createElement('div')
+        message.classList.add('flash-message')
+        message.innerText = data.message
+
+        flash.appendChild(message)
+      }
     } catch (error) {
-      alert('失敗しました。');
       console.error('Error:', error);
     }
   };
 };
 
-function getCurrentPosition(options = {}) {
+function getCurrentPosition() {
   return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    navigator.geolocation.getCurrentPosition(resolve);
   });
 }

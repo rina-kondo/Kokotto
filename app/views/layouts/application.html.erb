@@ -12,10 +12,14 @@
   </head>
 
   <body>
-    <% flash.each do |message_type, message| %>
-      <%= message %>
-    <% end %>
     <%= render "layouts/header" %>
+    <div class="flash">
+      <% flash.each do |message_type, message| %>
+        <div class="flash-message">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
     <%= render "layouts/menu" %>
     <%= link_to new_post_path do %>
       <i class="fa-solid fa-plus"></i>

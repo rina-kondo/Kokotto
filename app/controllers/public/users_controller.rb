@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def mypage
-    # @activities = current_user.activities　# 投稿とコメント一覧
+    @activities = current_user.activities　# 投稿とコメント一覧
   end
 
   def liked_posts
@@ -37,7 +37,7 @@ class Public::UsersController < ApplicationController
   end
 
   def ensure_guest_user
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     if current_user.name == "guest_user"
       redirect_to root_path
     end

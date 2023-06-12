@@ -1,0 +1,28 @@
+User List
+<table>
+  <tr>
+    <th>ユーザー名</th>
+    <th>メールアドレス</th>
+    <th>ステータス</th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <th>
+        <%= link_to admin_user_path(user) do %>
+          <%= user.name %>
+        <% end %>
+      </th>
+      <th><%= user.email %></th>
+      <% if user.is_deleted %>
+        <th>退会</th>
+        <th><%= link_to "退会に切り替え", admin_deactivate_path(user.id), method: :patch %></th>
+      <% else %>
+        <th>有効</th>
+        <th>
+          <%= link_to "有効に切り替え", admin_reactivate_path(user.id), method: :patch %>
+        </th>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

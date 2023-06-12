@@ -3,11 +3,15 @@
     <%= link_to "LOGO", root_path %>
   </li>
   <li>
-    <%= link_to "Kokottoについて", root_path %>
+    <%= link_to "What is Kokotto?", root_path %>
   </li>
   <% if user_signed_in? %>
     <li>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </li>
+  <% elsif admin_signed_in? %>
+    <li>
+      <%=  link_to "ログアウト", destroy_admin_session_path, method: :delete %>
     </li>
   <% else %>
     <li>

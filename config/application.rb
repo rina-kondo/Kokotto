@@ -10,7 +10,6 @@ module Kokotto
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -18,5 +17,12 @@ module Kokotto
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+  end
+end
+
+module TimeFormatSandbox
+  class Application < Rails::Application
+    config.time_zone = 'Asia/Tokyo'
+    config.i18n.default_locale = :ja
   end
 end
