@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Kokotto
 ## サイト概要
 ### サイトテーマ
@@ -29,37 +28,6 @@ kokotto(ココット)は、場所でつながる呟きサイトです。
 - OS：Linux(CentOS)
 - 言語：HTML, CSS(Saas), JavaScript, Ruby 3.2.1, SQL
 - フレームワーク：Ruby on Rails 6.1
-- JSライブラリ：jQuery
-- DB：mySQL
 
 ## 使用素材
-
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
-=======
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
->>>>>>> 3b30c92 (create new app)
+[Loose Drawing|無料で商用利用可なフリーイラスト](https://loosedrawing.com/)
