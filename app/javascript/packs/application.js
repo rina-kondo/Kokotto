@@ -8,7 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../geolocation"
-import "../display-taglist"
+import "../display-select-tag"
 
 Rails.start()
 Turbolinks.start()

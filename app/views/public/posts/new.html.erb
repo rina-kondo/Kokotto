@@ -19,9 +19,7 @@
 
 <div id="imageContainer">
   <% image_assets("feeling").each do |tag| %>
-    <div id="tag">
-      <%= image_tag tag, size: "100x100" %>
-    </div>
+    <%= image_tag tag, size: "100x100", class: "tag #{tag.split('/').pop().split('.')[0]}" %>
   <% end %>
 </div>
 
