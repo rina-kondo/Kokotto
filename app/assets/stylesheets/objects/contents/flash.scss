@@ -1,0 +1,15 @@
+@import '/foundation/typography';
+@import '/foundation/variable';
+
+.flash {
+  z-index: $z-index-layer2;
+  display: flex;
+  padding: 10px;
+  opacity: 0.9;
+
+  &-message {
+    background-color: var(--color-pink);
+    display: flex;
+    @include paragraph3;
+  }
+}

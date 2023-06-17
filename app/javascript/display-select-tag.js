@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", setup);
 
 function setup() {
   setupCategoryDisplay();
+  setupTagSelection();
 }
 
 function setupCategoryDisplay() {
@@ -12,15 +13,9 @@ function setupCategoryDisplay() {
 }
 
 async function handleCategoryClick(category) {
-  updateDisplay(category);
   const imagePaths = await fetchImagePaths(category);
   displayImages(imagePaths);
   setupTagSelection();
-}
-
-function updateDisplay(category) {
-  const displayDiv = document.getElementById('display');
-  displayDiv.innerText = category;
 }
 
 async function fetchImagePaths(category) {
@@ -59,6 +54,9 @@ function displaySelectTag(tagUrl) {
   const tagContainer = document.querySelector('#input-tag');
   tagContainer.innerHTML = '';
   const img = createImageElement(tagUrl, 100, 100);
+  img.classList.add('select-tag');
+  img.alt = getBaseName(tagUrl);
+
   tagContainer.appendChild(img);
 }
 
@@ -68,10 +66,14 @@ function createImageElement(src, width, height) {
   img.alt = getBaseName(src);
   img.width = width;
   img.height = height;
-
   return img;
 }
 
 function getBaseName(path) {
-  return path.split('/').pop().split('.')[0];
+  // asset/image/category/filename.jpgの"category/filename"を取り出す
+  const segments = path.split('/');
+  const assetsIndex = segments.indexOf('assets');
+  const pathSegment = `${segments[assetsIndex + 2]}/${segments[assetsIndex + 3]}`;
+  const tagUrlParts = pathSegment.split('-')[0].split('.')[0];
+  return tagUrlParts;
 }

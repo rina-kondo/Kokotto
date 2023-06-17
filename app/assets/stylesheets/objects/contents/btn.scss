@@ -1,0 +1,21 @@
+.btn{
+  display: inline-block;
+  color: var(--color-blue);
+  padding: 6px 20px;
+
+  border: solid 1px var(--color-blue);
+  border-radius: 30px;
+  text-decoration: none;
+  outline: none;
+}
+
+.btn-s{
+  display: inline-block;
+  color: var(--color-blue);
+  padding: 2px 20px;
+
+  border: solid 1px var(--color-blue);
+  border-radius: 30px;
+  text-decoration: none;
+  outline: none;
+}

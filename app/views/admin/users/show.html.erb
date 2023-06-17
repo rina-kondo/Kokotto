@@ -1,38 +1,70 @@
-<h2>User Infomatin</h2>
-<h3>ユーザー: <%= @user.name %></h3>
-<%= @user.is_deleted ? "退会" : "有効" %>
-<br />
-アカウント開始日: <%= l @user.created_at, format: :short %><br />
-メールアドレス: <%= @user.email %><br />
-
+<h2>ユーザー: <%= @user.name %></h2>
+<div>
+  <div class="btn-s"><%= @user.is_deleted ? "退会" : "有効" %></div>
+</div>
+<div>アカウント開始日: <%= @user.created_at, format: :short %></div>
+<div>メールアドレス: <%= @user.email %></div>
 
 <h2>Post List</h2>
 <% @posts.each do |post| %>
   <div class="card">
-    <%= post.text %><br />
-    <%= image_tag post.display_image(200,200) %><br />
-    <%= time_ago_in_words(post.created_at) %> ago
-
-    <i class="fa-solid fa-heart"></i>
-    <%= post.likes.count %>
-
-    <i class="fa-regular fa-comment"></i>
-    <%= post.comments.count %>
+    <div class='card__inner'>
+      <div class="card__flame">
+        <div class="card__tag">
+          <%= image_tag "/assets/tag/feeling/#{post.tag_name}", class: 'card__tagImg' %>
+        </div>
+        <div class="card__content">
+          <p class="card__contentText">
+            <%= post.text %>
+          </p>
+          <div class="card__contentImage">
+            <%= image_tag post.display_image(200,200) %>
+          </div>
+        </div>
+      </div>
+      <div class="card__summary">
+        <div class="card__summaryItem">
+          <i class="fa-regular fa-clock"></i>
+          <%= time_ago_in_words(post.created_at) %>
+        </div>
+        <div class="card__summaryItem">
+          <i class="fa-solid fa-heart"></i>
+          <%= post.likes.count %>
+        </div>
+        <div class="card__summaryItem">
+          <i class="fa-regular fa-comment"></i>
+          <%= post.comments.count %>
+        </div>
+        <div class="card__summaryItem">
+          <%= link_to admin_post_path(post.id), method: :delete do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= link_to admin_post_path(post.id), method: :delete do %>
-    <i class="fa-solid fa-trash"></i>
-  <% end %>
-  <br />
 <% end %>
 
 <h2>Comment List</h2>
+
 <% @comments.each do |comment| %>
   <div class="card">
-    <%= comment.text %><br />
-    <%= time_ago_in_words(comment.created_at) %> ago
+    <div class="card__flame">
+      <p class="card__contentText">
+        <%= comment.text %>
+      </p>
+    </div>
+
+    <div class="card__summary">
+      <div class="card__summaryItem">
+        <i class="fa-regular fa-clock"></i>
+        <%= time_ago_in_words(comment.created_at) %>
+      </div>
+      <div class="card__summaryItem">
+        <%= link_to admin_comment_path(comment.id), method: :delete do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <%= link_to admin_comment_path(comment.id), method: :delete do %>
-    <i class="fa-solid fa-trash"></i>
-  <% end %>
-  <br />
 <% end %>

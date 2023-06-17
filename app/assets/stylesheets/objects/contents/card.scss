@@ -1,0 +1,63 @@
+@import '../../foundation/typography';
+
+.card {
+  background-color: var(--color-white);
+  border: solid var(--color-blue);
+  border-radius: 8px;
+  padding: 10px;
+  transition: filter 0.3s var(--ease-out-quad);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__flame{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  &__tag {
+    display: flex;
+    border-radius: 50%;
+    max-width: 150px;
+    max-height: 150px;
+
+    &Img {
+      mergin: 0 auto;
+    }
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    max-width: 450px;
+
+    &Text{
+      display: flex;
+      word-wrap: break-all;
+    }
+
+    &Image{
+      margin-top: 10px;
+      display: flex;
+      margin: 0 auto;
+    }
+  }
+
+  &__summary {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: end;
+
+    &Item {
+      width: 100px;
+    }
+  }
+}

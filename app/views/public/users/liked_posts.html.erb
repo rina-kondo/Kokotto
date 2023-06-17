@@ -1,28 +1,5 @@
-
 <% @posts.each do |post| %>
-  <%= link_to post_path(post.id) do %>
-    <div class="card">
-      <%= post.text %><br />
-      <%= image_tag post.display_image(200,200) %><br />
-      <%= time_ago_in_words(post.created_at) %> ago
-
-      <% if post.liked_by?(current_user) %>
-        <%= link_to post_like_path(post.id), method: :delete do %>
-          <i class="fa-solid fa-heart"></i>
-          <%= post.likes.count %>
-        <% end %>
-      <% else %>
-        <%= link_to post_like_path(post.id), method: :post do %>
-          <i class="fa-regular fa-heart"></i>
-          <%= post.likes.count %>
-        <% end %>
-      <% end %>
-
-      <%= link_to new_comment_path(post.id) do %>
-        <i class="fa-regular fa-comment"></i>
-        <%= post.comments.count %>
-      <% end %>
-    </div>
+  <%= link_to post_path(post) do %>
+    <%= render 'public/posts/post_card', post: post %>
   <% end %>
-  <br />
 <% end %>

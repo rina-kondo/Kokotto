@@ -1,7 +1,13 @@
-<h3>コメント投稿フォーム</h3>
 
 <%= form_with model: @comment, url: comments_path(params[:post_id]) do |f| %>
-  <%= f.text_field :text, autofocus: true, placeholder: "コメントを入力" %>
-  <%= f.submit "コメントする" %>
+<div class="form">
+  <div class="form__flame">
+    <div class="form__content">
+      <%= f.text_field :text, autofocus: true, placeholder: "コメントしよう", class: "form__contentTextform--comment" %>
+    </div>
+    <div class="form__btn">
+      <%= f.submit "コメントする", class: "btn" %>
+    </div>
+  </div>
+</div>
 <% end %>
-

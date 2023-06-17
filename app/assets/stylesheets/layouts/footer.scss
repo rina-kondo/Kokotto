@@ -1,0 +1,16 @@
+@import '/foundation/typography';
+
+.footer {
+  padding: 10px 96px 24px;
+  background-color: var(--color-light-brown);
+
+  @media screen and (max-width: 959px) {
+    padding: 10px 6% 24px;
+  }
+
+  &__Bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+}

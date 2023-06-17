@@ -46,7 +46,7 @@ class Public::PostsController < ApplicationController
 
   private
   def user_location_params
-    params.permit(:latitude, :longitude, :text, :image)
+    params.permit(:latitude, :longitude, :text, :image, :tag_name)
   end
 
 end

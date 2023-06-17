@@ -1,0 +1,19 @@
+@import '../../foundation/variable';
+
+.pulsbutton {
+  position: fixed;
+  right: 30px;
+  bottom: 80px;
+  z-index: $z-index-layer3;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  aspect-ratio: 1 / 1;
+  font-size: 30px;
+  color: var(--color-white);
+  cursor: pointer;
+  background: var(--color-blue);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #4385bb88;
+  transition: opacity 0.3s var(--ease-out-quad);
+}

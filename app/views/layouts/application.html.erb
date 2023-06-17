@@ -7,24 +7,33 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/dec8a00012.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href=”https://fonts.googleapis.com/css?family=Noto+Sans+JP&amp;subset=japanese” rel=”stylesheet”>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <div class="flash">
-      <% flash.each do |message_type, message| %>
-        <div class="flash-message">
-          <%= message %>
-        </div>
+    <div class="main">
+      <%= render "layouts/header" %>
+
+      <% if user_signed_in? %>
+        <%= link_to new_post_path, class: 'pulsbutton' do %>
+          <i class="fa-solid fa-plus"></i>
+        <% end %>
       <% end %>
+
+      <div class="contents">
+        <div class="sub-contents">
+          <%= render "layouts/flash" %>
+          <% if user_signed_in? %>
+            <%= render "layouts/menu" %>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+
+      <%= render "layouts/footer" %>
     </div>
-    <%= render "layouts/menu" %>
-    <%= link_to new_post_path do %>
-      <i class="fa-solid fa-plus"></i>
-    <% end %>
-    <br />
-    <%= yield %>
   </body>
 </html>

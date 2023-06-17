@@ -1,12 +1,13 @@
 
-<%= current_user.name %>
-つぶやきりれき
+<h2>Hello!! <%= current_user.name %></h2>
+<h2>つぶやきりれき</h2>
+<%= @posts.each do |post| %>
+  <%= render 'public/posts/post_card', post: post %>
+<% end %>
 
-<% @activities.each do |activity| %>
-  <%= activity["text"] %>
-  <% if activity["image"] %>
-    <%= image_tag activity["image"], alt: "Activity image" %>
-  <% end %>
+<h2>コメントりれき</h2>
+<% @comments.each do |comment| %>
+  <%= render 'public/posts/comment_card', { post: comment.post , comment: comment} %>
 <% end %>
 
 <%= link_to edit_user_path(current_user.id) do %>

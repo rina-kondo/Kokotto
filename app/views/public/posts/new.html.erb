@@ -1,28 +1,36 @@
-<h3>投稿フォーム</h3>
 
-<div id="input-tag"></div>
-<input id="input_text", autofocus: true, placeholder="つぶやきを入力" /> <br />
-<input id="input_image", type="file", accept=".jpg,.png,.JPEG,.PNG">
-
-<h4>タグ一覧</h4>
-<div class="tag-cagotery-list">
-  <button class="category">feeling</button>
-  <button class="category">food</button>
-  <button class="category">hobby</button>
-  <button class="category">animal</button>
-  <button class="category">life</button>
-  <button class="category">nature</button>
-  <button class="category">other</button>
+<div class="form">
+  <div class="form__flame">
+    <div class="form__tag", id="input-tag">
+      <br />タグ<br />を選択
+    </div>
+    <div class="form__content">
+      <input class="form__contentTextform", id="input-text", autofocus: true, placeholder="つぶやこう" />
+      <input class="form__contentImageform", id="input-image", type="file", accept=".jpg,.png,.JPEG,.PNG">
+    </div>
+    <div class="form__btn">
+      <button class="btn", id="btn">つぶやく</button>
+    </div>
+  </div>
 </div>
 
-<div id="display"></div>
+<div>
+  <h3>タグ一覧</h3>
+  <div class="tag-cagotery-list">
+    <button class="category">feeling</button>
+    <button class="category">food</button>
+    <button class="category">hobby</button>
+    <button class="category">animal</button>
+    <button class="category">life</button>
+    <button class="category">nature</button>
+    <button class="category">other</button>
+  </div>
 
-<div id="imageContainer">
-  <% image_assets("feeling").each do |tag| %>
-    <%= image_tag tag, size: "100x100", class: "tag #{tag.split('/').pop().split('.')[0]}" %>
-  <% end %>
+  <div id="imageContainer">
+    <% image_assets("feeling").each do |tag| %>
+      <%= image_tag tag, size: "100x100", class: "tag #{tag.split('/').pop().split('.')[0]}" %>
+    <% end %>
+  </div>
+
+  <i class="fa-regular fa-image"></i>
 </div>
-
-<button id="btn">つぶやく</button>
-<br /><br />
-<i class="fa-regular fa-image"></i>

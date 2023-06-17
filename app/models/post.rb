@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   validates :user_id, presence: true
-  validates :text, presence: true, length: {maximum:50}
+  validates :text, presence: true, length: {maximum:100}
   validates :latitude, presence: true
   validates :longitude, presence: true
 

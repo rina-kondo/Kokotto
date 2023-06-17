@@ -1,0 +1,61 @@
+.form{
+  background-color: var(--color-white);
+  border: solid var(--color-blue);
+  border-radius: 8px;
+  padding: 10px;
+  transition: filter 0.3s var(--ease-out-quad);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__flame{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px
+  }
+
+  &__tag {
+    color: var(--color-dark-gray);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+
+    &Textform{
+      display: flex;
+      word-wrap: break-all;
+      width: 500px;
+      height: 100px;
+      border: solid 1px var(--color-dark-gray);
+      border-radius: 8px;
+    }
+
+    &Textform--comment{
+      display: flex;
+      word-wrap: break-all;
+      width: 620px;
+      height: 100px;
+      border: solid 1px var(--color-dark-gray);
+      border-radius: 8px;
+    }
+
+    &Imageform{
+      color: car(--color-black);
+      margin-top: 10px;
+      display: flex;
+    }
+  }
+
+  &__btn{
+    margin-left: 75%;
+  }
+}

@@ -17,17 +17,4 @@ class User < ApplicationRecord
     end
   end
 
-  def activities
-    query = <<-SQL
-      (SELECT 'Post' as record_type, id, text, image, created_at FROM posts WHERE user_id = :user_id)
-      UNION ALL
-      (SELECT 'Comment' as record_type, id, text, NULL as image, created_at FROM comments WHERE user_id = :user_id)
-      ORDER BY created_at DESC
-    SQL
-
-    ActiveRecord::Base.connection.execute(
-      ActiveRecord::Base.send(:sanitize_sql_array, [query, user_id: id])
-    )
-  end
-
 end

@@ -1,7 +1,7 @@
 window.onload = function () {
   const btn = document.getElementById("btn");
-  const inputText = document.getElementById('input_text');
-  const inputImage = document.getElementById('input_image');
+  const inputText = document.getElementById('input-text');
+  const inputImage = document.getElementById('input-image');
 
   btn.onclick = async function() {
     try {
@@ -9,10 +9,13 @@ window.onload = function () {
       const lat = pos.coords.latitude;
       const lng = pos.coords.longitude;
 
-      console.log(inputText.value, lat, lng);
+      const inputTag = document.querySelector('.select-tag');
+      console.log(inputText.value, inputTag.alt, lat, lng);
 
       const formData = new FormData();
       formData.append('text', inputText.value);
+      formData.append('tag_name', inputTag.alt);
+
       if (inputImage.files.length > 0) {
         formData.append('image', inputImage.files[0]);
       }

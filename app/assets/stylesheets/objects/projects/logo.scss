@@ -1,0 +1,18 @@
+.logo {
+  font-family: var(--font-logo);
+  font-size: 40px;
+  font-weight: bold;
+  white-space: nowrap;
+
+  &--Accent {
+    color: var(--color-blue);
+  }
+
+  &--Small {
+    font-size: 24px;
+
+    .logoAccent {
+      color: var(--color-blue);
+    }
+  }
+}
