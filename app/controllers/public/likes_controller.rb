@@ -3,6 +3,7 @@ class Public::LikesController < ApplicationController
     like = current_user.likes.new(post_id: params[:post_id])
     if like.save
       @post = Post.find(params[:post_id])
+      @post.create_notification_like!(current_user)
       redirect_to request.referer
     else
       render request.referer

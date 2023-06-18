@@ -7,6 +7,7 @@ class Public::CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.post_id = params[:post_id]
     if @comment.save
+      @comment.create_notification_comment!(current_user)
       redirect_to post_path(@comment.post_id)
     else
       render :new

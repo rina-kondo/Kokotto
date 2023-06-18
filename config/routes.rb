@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resource :like, only: [:create, :destroy]
     end
+    resources :notifications, only: :index
     scope '/posts/:post_id' do
       resources :comments, only: [:new, :create, :destroy]
     end
