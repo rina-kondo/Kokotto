@@ -1,15 +1,24 @@
+<h2>Hello!! <%= current_user.name %>
+  <%= link_to edit_user_path(current_user.id) do %>
+    <i class="fa-solid fa-gear"></i>
+  <% end %>
+</h2>
 
-<h2>Hello!! <%= current_user.name %></h2>
-<h2>つぶやきりれき</h2>
-<%= @posts.each do |post| %>
-  <%= render 'public/posts/post_card', post: post %>
+<div class="title">
+  <div class="title__circle--h2"></div>
+  <h2 class='form__title title__text'>Tweet List</h2>
+</div>
+
+<% @posts.each do |post| %>
+  <%= link_to post_path(post) do %>
+    <%= render 'public/posts/post_card', post: post %>
+  <% end %>
 <% end %>
 
-<h2>コメントりれき</h2>
+<div class="title">
+  <div class="title__circle--h2"></div>
+  <h2 class='form__title title__text'>Comment List</h2>
+</div>
 <% @comments.each do |comment| %>
   <%= render 'public/posts/comment_card', { post: comment.post , comment: comment} %>
-<% end %>
-
-<%= link_to edit_user_path(current_user.id) do %>
-  <i class="fa-solid fa-gear"></i>
 <% end %>

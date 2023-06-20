@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../geolocation"
 import "../display-select-tag"
+import "../notification-click"
 
 Rails.start()
 Turbolinks.start()

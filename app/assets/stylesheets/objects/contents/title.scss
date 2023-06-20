@@ -1,0 +1,31 @@
+.title{
+  display: flex;
+  align-items: center;
+
+  &__circle--h2{
+    display: flex;
+    width: 34px;
+    height: 34px;
+    background-image: var(--color-graduation);
+    border-radius: 32% 68% 66% 34% / 30% 55% 45% 70%;
+  }
+
+  &__circle--h3{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-image: var(--color-graduation);
+    border-radius: 32% 68% 66% 34% / 30% 55% 45% 70%;
+  }
+
+  &__text{
+    display: flex;
+    font-family: var(--font-logo);
+    font-weight: 500;
+    padding-left: 10px;
+    background: linear-gradient(90deg, #4158D0, #C850C0 30%, #FFCC70);
+    background: -webkit-linear-gradient(0deg, #4158D0, #C850C0 30%, #FFCC70);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

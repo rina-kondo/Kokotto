@@ -1,0 +1,25 @@
+@import '../../foundation/variable';
+
+.menu{
+  &__list{
+    position: sticky;
+    top: 0;
+  }
+
+  &__icon{
+    z-index: $z-index-layer3;
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    aspect-ratio: 1 / 1;
+    font-size: 30px;
+    color: var(--color-white);
+    cursor: pointer;
+    background-image: var(--color-graduation);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px #4385bb88;
+    transition: opacity 0.3s var(--ease-out-quad);
+  }
+}

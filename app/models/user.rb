@@ -19,4 +19,8 @@ class User < ApplicationRecord
     end
   end
 
+  def unread_notifications
+    passive_notifications.where.not(visitor_id: id).where(has_read: false)
+  end
+
 end

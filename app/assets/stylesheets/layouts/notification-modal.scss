@@ -1,0 +1,14 @@
+@import '/foundation/typography';
+@import '/foundation/variable';
+
+.notification__modal {
+  background-color: var(--color-white);
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 6px;
+  position: fixed;
+  top: 70px;
+  right: 40px;
+  z-index: $z-index-layer4;
+}
+

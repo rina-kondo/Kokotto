@@ -1,44 +1,49 @@
 @import '../../foundation/typography';
+@import '../../foundation/variable';
 
 .card {
   background-color: var(--color-white);
-  border: solid var(--color-blue);
   border-radius: 8px;
   padding: 10px;
-  transition: filter 0.3s var(--ease-out-quad);
+  box-shadow: none;
+  transition: box-shadow 0.3s var(--ease-out-quad);
 
-  &__inner {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  &:hover {
+    box-shadow: 0 4px 8px rgba(#CEA0C1, 0.5);
+    opacity: 1;
   }
 
   &__flame{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    overflow: hidden;
   }
 
   &__tag {
     display: flex;
-    border-radius: 50%;
     max-width: 150px;
     max-height: 150px;
+    padding: 10px 20px 0 20px;
 
     &Img {
       mergin: 0 auto;
+      border-radius: 50%;
+      opacity: 0.8;
     }
   }
 
   &__content{
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 30px;
     max-width: 450px;
 
     &Text{
       display: flex;
       word-wrap: break-all;
+      ccolor: var(--color-light-blue);
+      font-size: 18px;
     }
 
     &Image{
@@ -57,7 +62,13 @@
     justify-content: end;
 
     &Item {
+      color: var(--color-light-blue);
       width: 100px;
+      font-size: 16px;
+
+      a{
+        color: var(--color-light-blue);
+      }
     }
   }
 }

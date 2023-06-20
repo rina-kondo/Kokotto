@@ -46,6 +46,7 @@ group :development do
   gem "binding_of_caller"
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'i18n_generators'
+  gem 'pry-rails'
 
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
@@ -72,6 +73,5 @@ gem 'devise'
 gem 'kaminari','~> 1.2.1'
 gem "enum_help"
 gem 'rails-i18n'
-gem 'pry-rails'
 gem 'devise-i18n'
 

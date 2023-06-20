@@ -1,0 +1,12 @@
+@import '/foundation/typography';
+@import '/foundation/variable';
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  height: 100%;
+  z-index: $z-index-layer3;
+}

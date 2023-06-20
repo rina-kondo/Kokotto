@@ -7,15 +7,27 @@
   <nav class="header__Nav">
     <ul class="header__NavList">
       <li class="header__NavListItem">
-        <%= link_to "What is Kokotto?", root_path %>
+        <%= link_to root_path do %>
+          What's<span class="logo--small">Kokotto?</span>
+        <% end %>
       </li>
       <% if user_signed_in? %>
+        <li class="header__NavListItem">
+          <div class="notification-button" id="notification-button" role="button" aria-label="Show notifications">
+            <% if current_user.unread_notifications.exists? %>
+              <div class="notification-button--alert">︎</div>
+              <i class="fa-solid fa-bell"></i>
+            <% else %>
+              <i class="fa-solid fa-bell"></i>
+            <% end %>
+          </div>
+        </li>
         <li class="header__NavListItem">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
       <% elsif admin_signed_in? %>
         <li class="header__NavListItem">
-          <%=  link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         </li>
       <% else %>
         <li class="header__NavListItem">
@@ -27,9 +39,6 @@
         <div class="header__NavListItem">
           <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post %>
         </div>
-        <li class="header__NavListItem">
-          <%= "お知らせ" %>
-        </li>
       <% end %>
     </ul>
   </nav>

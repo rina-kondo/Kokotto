@@ -1,10 +1,10 @@
-.tag {
+.category {
   display: flex;
   align-items: center;
   padding: 2px 10px;
   background-color: var(--color-white);
   border: 3px solid var(--color-puple);
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: none;
   transition: box-shadow 0.3s var(--ease-out-quad);
 

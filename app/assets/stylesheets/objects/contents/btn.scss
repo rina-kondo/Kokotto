@@ -1,21 +1,28 @@
 .btn{
   display: inline-block;
-  color: var(--color-blue);
   padding: 6px 20px;
-
-  border: solid 1px var(--color-blue);
+  font-weight: 600;
+  color: var(--color-purple);
+  border: 1px solid var(--color-blue-purple);
   border-radius: 30px;
   text-decoration: none;
   outline: none;
-}
+  cursor: pointer;
 
-.btn-s{
-  display: inline-block;
-  color: var(--color-blue);
-  padding: 2px 20px;
+  &-s-light{
+    @extend .btn;
+    padding: 0 20px;
+    height: 22px;
+    background-color: var(--color-white);
+    color: var(--color-purple);
+  }
 
-  border: solid 1px var(--color-blue);
-  border-radius: 30px;
-  text-decoration: none;
-  outline: none;
+  &-s-dark{
+    @extend .btn;
+    padding: 0 20px;
+    height: 22px;
+    background-color: var(--color-orange-purple);
+    color: var(--color-white);
+  }
+
 }

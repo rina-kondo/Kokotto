@@ -5,7 +5,7 @@
       <br />タグ<br />を選択
     </div>
     <div class="form__content">
-      <input class="form__contentTextform", id="input-text", autofocus: true, placeholder="つぶやこう" />
+      <input class="form__contentTextform", id="input-text", type="text", autofocus: true, placeholder="つぶやこう" />
       <input class="form__contentImageform", id="input-image", type="file", accept=".jpg,.png,.JPEG,.PNG">
     </div>
     <div class="form__btn">
@@ -15,7 +15,10 @@
 </div>
 
 <div>
-  <h3>タグ一覧</h3>
+  <div class="title">
+    <div class="title__circle--h3"></div>
+    <h3 class='form__title title__text'>Tag List</h3>
+  </div>
   <div class="tag-cagotery-list">
     <button class="category">feeling</button>
     <button class="category">food</button>
@@ -26,7 +29,7 @@
     <button class="category">other</button>
   </div>
 
-  <div id="imageContainer">
+  <div class="tag-list" id="imageContainer">
     <% image_assets("feeling").each do |tag| %>
       <%= image_tag tag, size: "100x100", class: "tag #{tag.split('/').pop().split('.')[0]}" %>
     <% end %>

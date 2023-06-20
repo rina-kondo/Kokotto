@@ -1,0 +1,23 @@
+<div class="notification">
+<div class="title">
+  <div class="title__circle--h2"></div>
+  <h2 class='form__title title__text'>Notice</h2>
+</div>
+  <% if notifications.exists? %>
+    <% notifications.each do |notification| %>
+      <%= link_to post_path(notification.post_id) do %>
+        <div class="notification__card">
+          <div>
+              あなたの投稿が<%= notification_action_text(notification) %>されました!
+          </div>
+          <div>
+            <i class="fa-regular fa-clock"></i>
+            <%= l notification.created_at, format: :long %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>通知はありません</p>
+  <% end %>
+</div>

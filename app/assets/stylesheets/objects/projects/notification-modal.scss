@@ -1,0 +1,23 @@
+@import '/foundation/typography';
+@import '/foundation/variable';
+
+.notification{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__modal{
+    min-width: 200px;
+    min-height: 150px;
+  }
+
+  &__card{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px var(--color-dark-gray);
+  }
+
+  &__index-link{
+    color: var(--color-purple);
+  }
+}

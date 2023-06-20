@@ -1,42 +1,40 @@
 <div class="card">
-  <div class='card__inner'>
-    <div class="card__flame">
-      <div class="card__tag">
-        <%= image_tag "/assets/tag/#{post.tag_name}", class: 'card__tagImg' %>
-      </div>
-      <div class="card__content">
-        <p class="card__contentText">
-          <%= post.text %>
-        </p>
-        <div class="card__contentImage">
-          <%= image_tag post.display_image(200,200) %>
-        </div>
+  <div class="card__flame">
+    <div class="card__tag">
+      <%= image_tag "/assets/tag/#{post.tag_name}", class: 'card__tagImg' %>
+    </div>
+    <div class="card__content">
+      <p class="card__contentText">
+        <%= post.text %>
+      </p>
+      <div class="card__contentImage">
+        <%= image_tag post.display_image(200,200) %>
       </div>
     </div>
-    <div class="card__summary">
-      <div class="card__summaryItem">
-        <i class="fa-regular fa-clock"></i>
-        <%= time_ago_in_words(post.created_at) %>
-      </div>
-      <div class="card__summaryItem">
-        <% if post.liked_by?(current_user) %>
-          <%= link_to post_like_path(post.id), method: :delete do %>
-            <i class="fa-solid fa-heart"></i>
-            <%= post.likes.count %>
-          <% end %>
-        <% else %>
-          <%= link_to post_like_path(post.id), method: :post do %>
-            <i class="fa-regular fa-heart"></i>
-            <%= post.likes.count %>
-          <% end %>
+  </div>
+  <div class="card__summary">
+    <div class="card__summaryItem">
+      <i class="fa-regular fa-clock"></i>
+      <%= time_ago_in_words(post.created_at) %>
+    </div>
+    <div class="card__summaryItem">
+      <% if post.liked_by?(current_user) %>
+        <%= link_to post_like_path(post.id), method: :delete do %>
+          <i class="fa-solid fa-heart"></i>
+          <%= post.likes.count %>
         <% end %>
-      </div>
-      <div class="card__summaryItem">
-        <%= link_to new_comment_path(post.id) do %>
-          <i class="fa-regular fa-comment"></i>
-          <%= post.comments.count %>
+      <% else %>
+        <%= link_to post_like_path(post.id), method: :post do %>
+          <i class="fa-regular fa-heart"></i>
+          <%= post.likes.count %>
         <% end %>
-      </div>
+      <% end %>
+    </div>
+    <div class="card__summaryItem">
+      <%= link_to new_comment_path(post.id) do %>
+        <i class="fa-regular fa-comment"></i>
+        <%= post.comments.count %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -15,7 +15,7 @@ a {
   transition: opacity 0.3s var(--ease-in-out-quad);
 
   &:hover {
-    opacity: 0.5;
+    opacity: 0.7;
   }
 
   &:active,
@@ -69,6 +69,24 @@ img {
   height: auto;
 }
 
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 2px solid var(--color-blue-purple) ;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  border: 1px solid var(--color-purple) ;
+  border-radius: 5px;
+}
+
+::placeholder{
+  color: var(--color-purple);
+}
+
 h1,
 h2,
 h3,
@@ -84,7 +102,7 @@ h5 {
   --font-serif-en: 'Inter';
   --font-serif-jp: '‘Noto Sans JP’, sans-serif';
   // --font-serif: var(--font-serif-en), var(--font-serif-jp), 'ヒラギノ角ゴ', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
-  --font-logo:'Montserrat';
+  --font-logo: 'Montserrat';
   --font-extend: 'pnum' on, 'lnum' on;
   --width-max: 959px;
   --color-white: #FFFFFE;
@@ -92,9 +110,15 @@ h5 {
   --color-light-brown: #C0BBC0;
   --color-blue: #2F5580;
   --color-pink: #E8D2D4;
-  --color-light-blue: #4D6392;
+  --color-purple: #CEA0C1;
+  --color-orange-purple: #CEA0C1;
+  --color-blue-purple: #BEADE3;
+  --color-light-blue: #497193;
   --color-black: #2B2C34;
   --color-dark-gray: #9A9494;
+
+  // graduation(background-image:)
+  --color-graduation: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
 
   // easing
   --ease-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -128,3 +152,5 @@ h5 {
   --ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 }
+
+

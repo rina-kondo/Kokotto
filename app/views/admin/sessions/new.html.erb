@@ -1,4 +1,7 @@
-<h2>Log in</h2>
+<div class="title">
+  <div class="title__circle--h2"></div>
+  <h2 class='form__title title__text'>Log in</h2>
+</div>
 
 <%= form_with model: @admin, url: admin_session_path do |f| %>
   <div class="field">
@@ -19,7 +22,7 @@
   <% end %>
 
   <div class="form__link actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn-s-dark" %>
   </div>
 <% end %>
 

@@ -5,8 +5,9 @@
 }
 
 @include contents {
+  display:flex;
   flex-grow: 1;
   padding-block-start: 20px;
-  background-color: (var(--color-white));
   padding-bottom: 20px;
+  min-height: 100vh;
 }

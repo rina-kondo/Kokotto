@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resource :like, only: [:create, :destroy]
     end
     resources :notifications, only: :index
+    get 'notifications/modal', to: 'notifications#modal'
     scope '/posts/:post_id' do
       resources :comments, only: [:new, :create, :destroy]
     end

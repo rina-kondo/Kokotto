@@ -4,12 +4,10 @@
 .flash {
   z-index: $z-index-layer2;
   display: flex;
-  padding: 10px;
-  opacity: 0.9;
 
   &-message {
-    background-color: var(--color-pink);
-    display: flex;
+    background-color: rgba(#CEA0C1, 0.4);
+    padding: 5px 10px;
     @include paragraph3;
   }
 }

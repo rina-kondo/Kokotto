@@ -1,28 +1,19 @@
-<menu class="menu">
-  <%= link_to posts_path(current_user) do %>
-    <button class="menu__item active">
-        <div class="menu__icon" >
-          <i class="fa-solid fa-house-chimney"></i>
-        </div>
-        <strong class="menu__text active">Home</strong>
-    </button>
-  <% end %>
+<div class="menu">
+  <div class="menu__list">
+    <%= link_to posts_path(current_user), class: "menu__icon" do %>
+      <i class="fa-solid fa-house-chimney"></i>
+    <% end %>
 
-  <%= link_to liked_posts_path(current_user) do %>
-    <button class="menu__item active">
-        <div class="menu__icon" >
-          <i class="fa-solid fa-heart"></i>
-        </div>
-        <strong class="menu__text active">Lile</strong>
-    </button>
-  <% end %>
+    <%= link_to liked_posts_path(current_user), class: "menu__icon" do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
 
-  <%= link_to mypage_path do %>
-    <button class="menu__item active">
-        <div class="menu__icon" >
-          <i class="fa-solid fa-user"></i>
-        </div>
-        <strong class="menu__text active">Mypage</strong>
-    </button>
-  <% end %>
-</menu>
+    <%= link_to mypage_path, class: "menu__icon" do %>
+      <i class="fa-solid fa-user"></i>
+    <% end %>
+
+    <%= link_to new_post_path, class: 'menu__icon' do %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
+  </div>
+</div>

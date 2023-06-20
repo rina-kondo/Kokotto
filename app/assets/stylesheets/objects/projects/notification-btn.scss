@@ -1,0 +1,18 @@
+@import '/foundation/typography';
+@import '/foundation/variable';
+
+.notification-button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  &--alert {
+    background-color: red;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
