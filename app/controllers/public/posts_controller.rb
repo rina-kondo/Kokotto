@@ -22,11 +22,12 @@ class Public::PostsController < ApplicationController
     long_start = params[:long_start] || 130
     long_end = params[:long_end] || 140
 
-    @posts = Post.where(latitude: lat_start..lat_end, longitude: long_start..long_end).order(created_at: :desc)
+    @posts = Post.where(latitude: lat_start..lat_end, longitude: long_start..long_end).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def destroy

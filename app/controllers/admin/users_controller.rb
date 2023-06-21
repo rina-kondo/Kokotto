@@ -1,19 +1,17 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(20)
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.order(:created_at).reverse_order
-    @comments = @user.comments.order(:created_at).reverse_order
+    @posts = @user.posts.order(:created_at).reverse_order.page(params[:page]).per(5)
+    @comments = @user.comments.order(:created_at).reverse_order.page(params[:page]).per(5)
   end
 
   def edit
     @user = User.find(params[:id])
-    @posts = @user.posts.order(:created_at).reverse_order
-    @comments = @user.comments.order(:created_at).reverse_order
   end
 
   def update
@@ -45,7 +43,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :email)
   end
 end
 

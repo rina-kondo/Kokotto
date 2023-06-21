@@ -3,8 +3,10 @@
   <div class="title__circle--h2"></div>
   <h2 class='title__text'>Comment</h2>
 </div>
-<% @post.comments.each do |comment| %>
+<% @comments.each do |comment| %>
   <%= render 'public/posts/comment_card', { post: @post, comment: comment} %>
 <% end %>
+
+<%= paginate @comments %>
 
 <%= javascript_pack_tag 'notification-click.js' %>

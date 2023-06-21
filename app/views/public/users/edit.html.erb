@@ -8,7 +8,7 @@
     <%= f.text_field :email %>
   </div>
 
-  <%= f.submit "更新" %>
+  <%= f.submit "更新", class: "btn-s-light" %>
 <% end %>
 
 <%= link_to "アカウント削除", withdrawal_path(current_user), method: :patch, data:{ confirm: "本当に消しますか？"} %>

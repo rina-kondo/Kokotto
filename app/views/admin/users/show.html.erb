@@ -75,6 +75,7 @@
     </div>
   </div>
 <% end %>
+<%= paginate @posts %>
 
 <div class="title">
   <div class="title__circle--h2"></div>
@@ -100,6 +101,5 @@
       </div>
     </div>
   </div>
-
-  <%= form.submit "ユーザー情報を変更" %>
 <% end %>
+<%= paginate @comments %>

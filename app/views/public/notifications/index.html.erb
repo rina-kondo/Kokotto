@@ -1,2 +1,4 @@
 <%= render 'notification_list', notifications: @notifications %>
+<%= paginate @notifications %>
+
 <%= javascript_pack_tag 'notification-click.js' %>

@@ -1,7 +1,13 @@
+<div class="title">
+  <div class="title__circle--h2"></div>
+  <h2 class='title__text'>Likes</h2>
+</div>
 <% @posts.each do |post| %>
   <%= link_to post_path(post) do %>
     <%= render 'public/posts/post_card', post: post %>
   <% end %>
 <% end %>
+
+<%= paginate @posts %>
 
 <%= javascript_pack_tag 'notification-click.js' %>

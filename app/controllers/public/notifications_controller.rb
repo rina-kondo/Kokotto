@@ -2,7 +2,7 @@ class Public::NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @notifications = current_user.passive_notifications.where.not(visitor_id: current_user.id).order(created_at: :desc)
+    @notifications = current_user.passive_notifications.where.not(visitor_id: current_user.id).order(created_at: :desc).page(params[:page]).per(10)
     unread_notifications = current_user.unread_notifications
     unread_notifications.update_all(has_read: true)
   end

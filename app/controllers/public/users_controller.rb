@@ -2,12 +2,12 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def mypage
-    @posts = current_user.posts.order(created_at: :desc)
-    @comments = current_user.comments.order(created_at: :desc)
+    @posts = current_user.posts.order(created_at: :desc).page(params[:page]).per(5)
+    @comments = current_user.comments.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def liked_posts
-    @posts = current_user.liked_posts.order(created_at: :desc)
+    @posts = current_user.liked_posts.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def edit
@@ -31,10 +31,10 @@ class Public::UsersController < ApplicationController
     end
   end
 
-  private
+ private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :email)
   end
 
   def ensure_guest_user
