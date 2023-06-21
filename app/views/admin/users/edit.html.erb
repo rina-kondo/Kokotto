@@ -1,0 +1,55 @@
+<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <%= link_to admin_path, temprop: "item" do %>
+      <span itemprop="name">User List</span>
+    <% end %>
+    <meta itemprop="position" content="1" />
+  </li>
+  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <%= link_to admin_user_path(@user), temprop: "item" do %>
+      <span itemprop="name"><%= @user.name %></span>
+    <% end %>
+    <meta itemprop="position" content="2" />
+  </li>
+  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <%= link_to edit_admin_user_path(@user), temprop: "item" do %>
+      <span itemprop="name"><%= @user.name %> editing</span>
+    <% end %>
+    <meta itemprop="position" content="３" />
+  </li>
+</ol>
+
+<%= form_with model: @user, url: admin_user_path(@user), method: :patch do |form| %>
+  <div class="admin__user-headline">
+    <div class="admin__title">
+      <h1>
+        <%= form.text_field :name %>
+      </h1>
+    </div>
+
+    <div class="admin__user-item">
+      <% if @user.is_deleted %>
+        <div class="invalid-user">退会</div>
+      <% else %>
+        <div class="active-user">有効</div>
+      <% end %>
+    </div>
+  </div>
+
+  <div>アカウント開始日: <%= l @user.created_at, format: :short %></div>
+  <div>
+    メールアドレス:
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="admin__editbtn-list">
+    <%= form.submit "ユーザー情報を変更", class: "btn-s-notice" %>
+
+    <% if @user.is_deleted %>
+      <%= link_to "アカウントを有効に切り替え", admin_reactivate_path(@user.id), method: :patch, class: "btn-s-notice" %>
+    <% else %>
+      <%= link_to "アカウントを無効に切り替え", admin_deactivate_path(@user.id), method: :patch, class: "btn-s-danger" %>
+    <% end %>
+  </div>
+
+<% end %>

@@ -1,33 +1,44 @@
-<h2>User List</h2>
+<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <%= link_to admin_path, temprop: "item" do %>
+      <span itemprop="name">User List</span>
+    <% end %>
+    <meta itemprop="position" content="1" />
+  </li>
+</ol>
 
-<table>
-  <tr>
-    <th>ユーザー名</th>
-    <th>メールアドレス</th>
-    <th>ステータス</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @users.each do |user| %>
+<table class="admin__table-container">
+  <thead>
     <tr>
-      <th>
-        <%= link_to admin_user_path(user) do %>
-          <%= user.name %>
-        <% end %>
-      </th>
-      <th><%= user.email %></th>
-      <% if user.is_deleted %>
-        <th>退会</th>
-        <th><%= link_to "有効に切り替え", admin_reactivate_path(user.id), method: :patch, class: "btn-s" %></th>
-      <% else %>
-        <th>有効</th>
-        <th><%= link_to "退会に切り替え", admin_deactivate_path(user.id), method: :patch, class: "btn-s" %></th>
-      <% end %>
-      <th>
-        <%= link_to admin_user_path(user), class: "btn-s" do %>
-          詳細
-        <% end %>
-      </th>
+      <th>ユーザー名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+      <th></th>
+      <th class="table-column-optional"></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th>
+          <%= link_to admin_user_path(user), class: "admin__user-link" do %>
+            <%= user.name %>
+          <% end %>
+        </th>
+        <th><%= user.email %></th>
+        <% if user.is_deleted %>
+          <th class="invalid-user">退会</th>
+          <th><%= link_to "有効に切り替え", admin_reactivate_path(user.id), method: :patch, class: "btn-s-notice" %></th>
+        <% else %>
+          <th class="active-user">有効</th>
+          <th><%= link_to "退会に切り替え", admin_deactivate_path(user.id), method: :patch, class: "btn-s-danger" %></th>
+        <% end %>
+        <th class="table-column-optional">
+          <%= link_to admin_user_path(user), class: "btn-s-light" do %>
+            詳細
+          <% end %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

@@ -32,4 +32,23 @@
     color: var(--color-white);
   }
 
+  &-s-danger{
+    @extend .btn;
+    padding: 0 13px;
+    height: 22px;
+    border: none;
+    background-color: var(--color-red);
+    opacity: 0.7;
+    color: var(--color-white);
+  }
+
+  &-s-notice{
+    @extend .btn;
+    padding: 0 13px;
+    height: 22px;
+    border: none;
+    background-color: var(--color-light-blue);
+    opacity: 0.7;
+    color: var(--color-white);
+  }
 }

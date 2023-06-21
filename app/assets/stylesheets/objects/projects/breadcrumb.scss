@@ -1,0 +1,38 @@
+.breadcrumb {
+  margin: 0;
+  padding: 1.1em 1em;
+  list-style: none;
+  overflow: hidden;
+
+  li {
+    display: inline;
+    list-style: none;
+
+    &:after {
+      font-family: FontAwesome;
+      content: '\f101';
+      padding: 0 0.2em;
+      color: var(--color-light-blue);
+    }
+
+    &:last-child:after {
+      content: '';
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--color-blue);
+    }
+
+    &:first-child a:before {
+      font-family: FontAwesome;
+      content: '\f015';
+      font-weight: normal;
+      font-size: 1.1em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}

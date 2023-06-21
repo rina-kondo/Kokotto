@@ -1,0 +1,67 @@
+.admin__table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  min-width: 600px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+@media screen and (max-width: 700px) {
+  .table-column-optional {
+    display: none;
+  }
+}
+
+
+.admin{
+  &__user-link{
+    font-size: 15px;
+    color: var(--color-orange-purple);
+    font-weight: 900;
+    text-decoration: underline;
+    text-decoration-color: var(--color-orange-purple);
+  }
+
+  &__user-headline{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__icon{
+    color: var(--color-blue);
+  }
+
+  &__editbtn-list{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-top: 20px;
+  }
+}
+
+.active-user{
+  display: inline-block;
+  padding: 0 20px;
+  margin-left: 10px;
+  height: 22px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: 1px solid var(--color-blue-purple);
+  background-color: var(--color-white);
+  color: var(--color-purple);
+}
+
+.invalid-user{
+  display: inline-block;
+  padding: 0 20px;
+  height: 22px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: 1px solid var(--color-light-blue);
+  background-color: var(--color-white);
+  color: var(--color-light-blue);
+}

@@ -57,6 +57,10 @@ button {
   }
 }
 
+table td {
+  overflow-wrap: break-word;
+}
+
 [hidden],
 .is-hidden {
   // stylelint-disable-next-line declaration-no-important
@@ -116,6 +120,7 @@ h5 {
   --color-light-blue: #497193;
   --color-black: #2B2C34;
   --color-dark-gray: #9A9494;
+  --color-red: #f68084;
 
   // graduation(background-image:)
   --color-graduation: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);

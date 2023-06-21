@@ -1,17 +1,48 @@
-<h2>ユーザー: <%= @user.name %></h2>
-<div>
-  <div class="btn-s"><%= @user.is_deleted ? "退会" : "有効" %></div>
+<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <%= link_to admin_path, temprop: "item" do %>
+      <span itemprop="name">User List</span>
+    <% end %>
+    <meta itemprop="position" content="1" />
+  </li>
+  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <%= link_to admin_user_path(@user), temprop: "item" do %>
+      <span itemprop="name"><%= @user.name %></span>
+    <% end %>
+    <meta itemprop="position" content="2" />
+  </li>
+</ol>
+
+<div class="admin__user-headline">
+  <div class="admin__title">
+    <h1 class='form__title title__text'><%= @user.name %></h1>
+  </div>
+  <%= link_to edit_admin_user_path(@user) do %>
+    <i class="fa-regular fa-pen-to-square admin__icon"></i>
+  <% end %>
+
+  <div class="admin__user-status">
+    <% if @user.is_deleted %>
+      <div class="invalid-user">退会</div>
+    <% else %>
+      <div class="active-user">有効</div>
+    <% end %>
+  </div>
 </div>
-<div>アカウント開始日: <%= @user.created_at, format: :short %></div>
+
+<div>アカウント開始日: <%= l @user.created_at, format: :short %></div>
 <div>メールアドレス: <%= @user.email %></div>
 
-<h2>Post List</h2>
+<div class="title">
+  <div class="title__circle--h2"></div>
+  <h2 class='title__text'>Tweet List</h2>
+</div>
 <% @posts.each do |post| %>
   <div class="card">
     <div class='card__inner'>
       <div class="card__flame">
         <div class="card__tag">
-          <%= image_tag "/assets/tag/feeling/#{post.tag_name}", class: 'card__tagImg' %>
+          <%= image_tag "/assets/tag/#{post.tag_name}", class: 'card__tagImg' %>
         </div>
         <div class="card__content">
           <p class="card__contentText">
@@ -45,8 +76,10 @@
   </div>
 <% end %>
 
-<h2>Comment List</h2>
-
+<div class="title">
+  <div class="title__circle--h2"></div>
+  <h2 class='form__title title__text'>Comment List</h2>
+</div>
 <% @comments.each do |comment| %>
   <div class="card">
     <div class="card__flame">
@@ -67,4 +100,6 @@
       </div>
     </div>
   </div>
+
+  <%= form.submit "ユーザー情報を変更" %>
 <% end %>
