@@ -74,4 +74,5 @@ gem 'kaminari'
 gem "enum_help"
 gem 'rails-i18n'
 gem 'devise-i18n'
+gem 'dotenv-rails'
 
