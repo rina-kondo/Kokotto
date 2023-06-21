@@ -5,6 +5,7 @@ window.onload = function () {
 
   btn.onclick = async function() {
     try {
+      event.target.disabled = true;
       const pos = await getCurrentPosition();
       const lat = pos.coords.latitude;
       const lng = pos.coords.longitude;

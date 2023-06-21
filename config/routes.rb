@@ -32,8 +32,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/' => 'users#index'
-    patch "deactivate" => "users#deactivate"
-    patch "reactivate" => "users#reactivate"
+    patch "deactivate/:id" => "users#deactivate", as: "deactivate"
+    patch "reactivate/:id" => "users#reactivate", as: "reactivate"
     resources :users, only: [:show, :edit, :update]
     resources :posts, only: [:destroy]
     resources :comments, only: [:show, :destroy]
