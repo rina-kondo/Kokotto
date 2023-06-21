@@ -9,6 +9,13 @@
   outline: none;
   cursor: pointer;
 
+  &-about{
+    @extend .btn;
+    border: none;
+    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+    color: var(--color-white);
+  }
+
   &-s-light{
     @extend .btn;
     padding: 0 20px;

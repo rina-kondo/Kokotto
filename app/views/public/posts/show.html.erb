@@ -1,5 +1,8 @@
 <%= render 'public/posts/post_card', post: @post %>
-<h2>コメント</h2>
+<div class="title">
+  <div class="title__circle--h2"></div>
+  <h2 class='form__title title__text'>Comment</h2>
+</div>
 <% @post.comments.each do |comment| %>
   <%= render 'public/posts/comment_card', { post: @post, comment: comment} %>
 <% end %>

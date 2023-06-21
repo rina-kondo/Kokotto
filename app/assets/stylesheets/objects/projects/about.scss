@@ -1,0 +1,45 @@
+@import '../contents/logo';
+.about{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__sublogo{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-light-blue);
+  }
+
+  &__logo{
+    @extend .logo;
+    margin: 0 auto;
+    font-size: 50px;
+    padding-bottom: 20px;
+
+    &--Accent {
+      font-size: 54px;
+      color: var(--color-light-blue);
+    }
+  }
+
+  &__btn-list{
+    display: flex;
+    margin: 0 auto;
+    gap: 15px;
+  }
+
+  &__circle{
+    // position: absolute;
+    margin-top: 30px;
+    max-width: 450px;
+    height: 300px;
+    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+    border-radius: 32% 68% 68% 32% / 74% 49% 51% 26%;
+  }
+
+  &__kokotto{
+    position: relative;
+    color: white;
+  }
+}

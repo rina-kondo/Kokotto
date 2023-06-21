@@ -1,1 +1,35 @@
-<h1> Kokotto </h1>
+<div class="about">
+  <p class="about__sublogo">- 場所でつながるSNS -</p>
+  <h1 class="about__logo">
+    <span class="about__logo--Accent">Koko</span>tto
+  </h1>
+</div>
+
+<% unless user_signed_in? %>
+  <div class="about__btn-list">
+    <%= link_to "新規登録", new_user_registration_path, class: "btn-about" %>
+    <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post, class: "btn-about" %>
+    <%= link_to "ログイン", new_user_session_path, class: "btn-about" %>
+  </div>
+<% end %>
+
+<div class="about__circle"></div>
+
+<div class="about__kokotto">
+  <h2>Kokotto とは？</h2>
+  おでかけ先の気持ちやイベントを共有しあって<br/>
+  おでかけをより楽しい思い出にできます
+</div>
+
+観光先
+
+学校
+
+カフェ
+
+
+<h2>セキュリティー</h2>
+ユーザーがどこで呟いたかどうかの履歴は、<br/>
+つぶやいた本人しかわかりません。<br/>
+
+※ 自宅などプライバシーと強く結びつく場所でのつぶやきは非推奨です

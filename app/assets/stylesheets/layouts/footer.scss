@@ -2,23 +2,16 @@
 
 .footer {
   position: relative;
-
-  &_wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 1400px;
-    height: 80px;
-    background-image: var(--color-graduation);
+  svg {
+    width: 100%;
+    max-width: 1400px;
+    height: 200px;
   }
 
-  // @media screen and (max-width: 959px) {
-  //   padding: 10px 6% 24px;
-  // }
-
-  // &__Bottom {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   font-size: 12px;
-  // }
+  &__text{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: var(--color-white);
+  }
 }

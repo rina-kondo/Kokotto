@@ -5,16 +5,17 @@
   white-space: nowrap;
 
   &--Accent {
-    color: var(--color-blue);
+    font-size: 42px;
+    color: var(--color-light-blue);
   }
 
   &--Small {
     font-family: var(--font-logo);
-    color: var(--color-blue);
+    color: var(--color-light-blue);
     font-size: 24px;
 
     .logoAccent {
-      color: var(--color-blue);
+      color: var(--color-light-blue);
     }
   }
 }
