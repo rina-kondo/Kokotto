@@ -6,3 +6,5 @@
 <% @post.comments.each do |comment| %>
   <%= render 'public/posts/comment_card', { post: @post, comment: comment} %>
 <% end %>
+
+<%= javascript_pack_tag 'notification-click.js' %>

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", setup);
+document.addEventListener("turbolinks:load", setup);
 
 function setup() {
   setupCategoryDisplay();
