@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 2023_06_17_204350) do
   create_table "notifications", force: :cascade do |t|
     t.integer "visitor_id", null: false
     t.integer "visited_id", null: false
-    t.integer "post_id"
-    t.integer "comment_id"
-    t.string "action", default: "", null: false
+    t.integer "post_id", null: false
+    t.integer "comment_id", null: false
+    t.string "action", null: false
     t.boolean "has_read", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 2023_06_17_204350) do
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.string "name", null: false
+    t.float "now_latitude"
+    t.float "now_longitude"
     t.boolean "is_deleted", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

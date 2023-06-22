@@ -20,6 +20,9 @@ async function handleCategoryClick(category) {
 
 async function fetchImagePaths(category) {
   const response = await fetch(`/posts/image_paths?category=${encodeURIComponent(category)}`);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
   return await response.json();
 }
 
@@ -28,35 +31,29 @@ function displayImages(imagePaths) {
   imageContainer.innerHTML = '';
 
   imagePaths.forEach(imagePath => {
-    const img = createImageElement("/assets/" + imagePath, 100, 100);
-    img.classList.add(getBaseName(imagePath));
-    img.classList.add('tag');
-
+    const img = createImageElement(`/assets/${imagePath}`, 100, 100);
+    img.classList.add(getBaseName(imagePath), 'tag');
     imageContainer.appendChild(img);
   });
 }
 
 function setupTagSelection() {
   const images = document.querySelectorAll('.tag');
-
   images.forEach(image => {
-    image.removeEventListener('click', handleTagClick);
     image.addEventListener('click', handleTagClick);
   });
 }
 
 function handleTagClick() {
-  const tagUrl = this.src;
-  displaySelectTag(tagUrl);
+  displaySelectTag(this.src);
 }
 
 function displaySelectTag(tagUrl) {
   const tagContainer = document.querySelector('#input-tag');
   tagContainer.innerHTML = '';
+
   const img = createImageElement(tagUrl, 100, 100);
   img.classList.add('select-tag');
-  img.alt = getBaseName(tagUrl);
-
   tagContainer.appendChild(img);
 }
 
@@ -70,10 +67,9 @@ function createImageElement(src, width, height) {
 }
 
 function getBaseName(path) {
-  // asset/image/category/filename.jpgの"category/filename"を取り出す
+  // "asset/image/category/filename.jpg"の"category/filename"を取り出す
   const segments = path.split('/');
   const assetsIndex = segments.indexOf('assets');
   const pathSegment = `${segments[assetsIndex + 2]}/${segments[assetsIndex + 3]}`;
-  const tagUrlParts = pathSegment.split('-')[0].split('.')[0];
-  return tagUrlParts;
+  return pathSegment.split('-')[0].split('.')[0];
 }

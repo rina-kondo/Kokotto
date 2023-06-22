@@ -7,6 +7,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :email,              null: false
       t.string :encrypted_password, null: false
       t.string :name,               null: false
+      t.float  :now_latitude
+      t.float  :now_longitude
       t.boolean :is_deleted,        null: false, default: false
 
 

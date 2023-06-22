@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in', as: 'guest_sign_in'
   end
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     root to: 'homes#about'
     patch "withdrawal" => "users#withdrawal"
     get 'mypage' => 'users#mypage'
+    patch 'user/now_location', to: 'users#now_location'
     get 'user/information/edit', to: 'users#edit', as: 'edit_user'
     get 'user/liked_posts', to: 'users#liked_posts', as: 'liked_posts'
     patch 'user/information', to: 'users#update', as: 'update_user'
