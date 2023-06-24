@@ -17,8 +17,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    current_user.now_latitude || 0
-    current_user.now_longitude || 0
+    current_user.now_latitude = current_user.now_latitude || 0
+    current_user.now_longitude = current_user.now_longitude || 0
 
     lat_start = current_user.now_latitude - 1.0
     lat_end = current_user.now_latitude + 1.0
