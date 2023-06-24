@@ -1,5 +1,7 @@
 @import '../contents/logo';
+
 .about{
+  font-size: 16px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -25,21 +27,112 @@
 
   &__btn-list{
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     gap: 15px;
   }
 
-  &__circle{
-    // position: absolute;
-    margin-top: 30px;
-    max-width: 450px;
-    height: 300px;
+  &__content{
+    display: flex;
+    flex-direction: row;
+    margin: 50px 0;
+  }
+
+  &__circle1{
+    min-width: 100px;
+    max-height: 90px;
+    margin-top: 10px;
     background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
     border-radius: 32% 68% 68% 32% / 74% 49% 51% 26%;
   }
 
   &__kokotto{
-    position: relative;
-    color: white;
+    color: var(--color-black);
+    margin-left: 10px;
+
+    &Subtitle{
+      font-size: 26px;
+    }
   }
+
+  &__images{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+  }
+
+  .item-image-list{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+  }
+
+  .item-image1{
+    border: none;
+    border-radius: 50%;
+
+    &:nth-child(1){
+      width: 100px;
+    }
+    &:nth-child(2){
+      width: 140px;
+      margin-left: 20px;
+    }
+    &:nth-child(3){
+      width: 120px;
+    }
+  }
+
+  .item-image2{
+    border: none;
+    border-radius: 50%;
+
+    &:nth-child(1){
+      margin-left: 40px;
+      width: 80px;
+    }
+    &:nth-child(2){
+      width: 60px;
+      margin-left: 20px;
+    }
+    &:nth-child(3){
+      margin-left: 30px;
+      width: 120px;
+    }
+    &:nth-child(4){
+      margin-left: 20px;
+      width: 90px;
+    }
+  }
+
+  .girl-img{
+    display: inline-box;
+    max-width: 200px;
+    text-align: center;
+    height: auto;
+    margin: auto 0;
+  }
+
+
+  &__circle2{
+    min-width: 100px;
+    max-height: 90px;
+    margin-top: 10px;
+    background: #ee9ca7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 66% 34% 45% 55% / 42% 41% 59% 58% ;
+  }
+
+  &__security{
+    color: var(--color-black);
+    margin-right: 10px;
+    text-align: right;
+
+    &Subtitle{
+      font-size: 26px;
+    }
+  }
+
 }

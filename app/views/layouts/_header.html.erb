@@ -8,11 +8,6 @@
     <ul class="header__NavList">
       <% if user_signed_in? %>
         <li class="header__NavListItem">
-          <%= link_to root_path do %>
-            What's<span class="logo--small">Kokotto?</span>
-          <% end %>
-        </li>
-        <li class="header__NavListItem">
           <div class="notification-button" id="notification-button" role="button" aria-label="Show notifications">
             <% if current_user.unread_notifications.exists? %>
               <div class="notification-button--alert">︎</div>
@@ -31,9 +26,7 @@
         </li>
       <% else %>
         <li class="header__NavListItem">
-          <%= link_to root_path do %>
-            What's<span class="logo--small">Kokotto?</span>
-          <% end %>
+          <%= link_to root_path do %> What's Kokotto?<% end %>
         </li>
         <li class="header__NavListItem">
           <%= link_to "新規登録", new_user_registration_path %>

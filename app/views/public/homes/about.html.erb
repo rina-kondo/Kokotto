@@ -3,35 +3,71 @@
   <h1 class="about__logo">
     <span class="about__logo--Accent">Koko</span>tto
   </h1>
-</div>
 
-<% unless user_signed_in? || admin_signed_in? %>
-  <div class="about__btn-list">
-    <%= link_to "新規登録", new_user_registration_path, class: "btn-about" %>
-    <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post, class: "btn-about" %>
-    <%= link_to "ログイン", new_user_session_path, class: "btn-about" %>
+
+  <% unless user_signed_in? || admin_signed_in? %>
+    <div class="about__btn-list">
+      <%= link_to "新規登録", new_user_registration_path, class: "btn-about" %>
+      <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post, class: "btn-about" %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn-about" %>
+    </div>
+  <% end %>
+
+  <div class="about__content">
+    <div class="about__circle1"></div>
+
+    <div class="about__kokotto">
+      <div class="about__kokottoSubtitle">
+        <span class="logo--Small"><span class="logoAccent">Koko</span>tto</span>とは？
+      </div>
+      kokotto(ココット)は、場所でつながる呟きサイトです<br/>
+      観光地、学校、カフェで、自分の感じたことをつぶやいて共有ましょう<br/>
+      あなたは今いる場所と同じ場所で投稿されたひとりごとを覗くことができます
+    </div>
   </div>
-<% end %>
+  <div class="about__images">
+    <div class="item-image-list">
+      <%= image_tag "about/bag.jpeg", class: "item-image1" %>
+      <%= image_tag "about/staba.jpeg", class: "item-image1" %>
+      <%= image_tag "about/baseball.jpeg", class: "item-image1" %>
+    </div>
+    <div class="girl-img">
+      おでかけ先での<br/>
+      出来事や気持ちや写真を<br/>
+      シェアして<br/>
+      <%= image_tag "about/girl.png" %>
+      おでかけを<br />
+      より楽しい思い出に
+    </div>
+    <div class="item-image-list">
+      <%= image_tag "about/painting.jpeg", class: "item-image2" %>
+      <%= image_tag "about/study.jpeg", class: "item-image2" %>
+      <%= image_tag "about/sun-flowers.jpeg", class: "item-image2" %>
+      <%= image_tag "about/steak.jpeg", class: "item-image2" %>
+    </div>
+  </div>
 
-<div class="about__circle"></div>
 
-<div class="about__kokotto">
-  <h2>Kokotto とは？</h2>
-  おでかけ先の気持ちやイベントを共有しあって<br/>
-  おでかけをより楽しい思い出にできます
+  <div class="about__content">
+    <div class="about__security">
+      <div class="about__securitySubtitle">セキュリティ</div>
+      あなたが「いつ どこで 何を」つぶやいたかは
+      第三者には非公開です<br/>
+      ※ 自宅などプライバシーと強く結びつく場所でのつぶやきは推奨しておりません<br/>
+    </div>
+    <div class="about__circle2"></div>
+  </div>
+
+
+  <% unless user_signed_in? || admin_signed_in? %>
+    <div class="about__btn-list">
+      <%= link_to "新規登録", new_user_registration_path, class: "btn-about" %>
+      <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post, class: "btn-about" %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn-about" %>
+    </div>
+  <% end %>
+
 </div>
 
-観光先
 
-学校
-
-カフェ
-
-
-<h2>セキュリティー</h2>
-ユーザーがどこで呟いたかどうかの履歴は、<br/>
-つぶやいた本人しかわかりません。<br/>
-
-※ 自宅などプライバシーと強く結びつく場所でのつぶやきは非推奨です
-
-<%= javascript_pack_tag 'notification-click.js' %>
+<%= javascript_pack_tag 'scroll-bserver.js' %>

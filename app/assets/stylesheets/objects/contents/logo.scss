@@ -11,10 +11,13 @@
 
   &--Small {
     font-family: var(--font-logo);
-    color: var(--color-light-blue);
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 400;
 
     .logoAccent {
+      font-family: var(--font-logo);
+      font-size: 30px;
+      font-weight: 400;
       color: var(--color-light-blue);
     }
   }
