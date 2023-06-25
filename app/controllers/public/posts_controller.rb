@@ -20,12 +20,12 @@ class Public::PostsController < ApplicationController
     current_user.now_latitude = current_user.now_latitude || 0
     current_user.now_longitude = current_user.now_longitude || 0
 
-    lat_start = current_user.now_latitude - 1.0
-    lat_end = current_user.now_latitude + 1.0
-    long_start = current_user.now_longitude - 1.0
-    long_end = current_user.now_longitude + 1.0
+    lat_start = current_user.now_latitude - 0.003
+    lat_end = current_user.now_latitude + 0.003
+    long_start = current_user.now_longitude - 0.003
+    long_end = current_user.now_longitude + 0.003
 
-    @posts = Post.where(latitude: lat_start..lat_end, longitude: long_start..long_end).order(created_at: :desc).page(params[:page]).per(10)
+    @posts = Post.where(user_id: 1).or(Post.where(latitude: lat_start..lat_end, longitude: long_start..long_end)).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show

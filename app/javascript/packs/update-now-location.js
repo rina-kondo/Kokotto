@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", onPageLoad);
 
 async function onPageLoad() {
-  if (window.name === "reloaded") {
-    console.log(window.name);
+  console.log(window.name);
+  if (window.name == "reloaded") {
+    window.name = "";
     return;
   }
 
@@ -25,8 +26,9 @@ async function onPageLoad() {
     const data = await response.json();
 
     if (response.ok) {
-      window.location.reload();
       window.name = "reloaded";
+      console.log("post done");
+      window.location.reload();
     } else {
       displayFlashMessage(data.message);
     }
