@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2023_06_17_204350) do
     t.integer "visitor_id", null: false
     t.integer "visited_id", null: false
     t.integer "post_id", null: false
-    t.integer "comment_id", null: false
+    t.integer "comment_id"
     t.string "action", null: false
     t.boolean "has_read", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
