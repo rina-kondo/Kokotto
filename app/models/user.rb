@@ -23,4 +23,8 @@ class User < ApplicationRecord
     passive_notifications.where.not(visitor_id: id).where(has_read: false)
   end
 
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
 end

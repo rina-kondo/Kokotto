@@ -36,7 +36,7 @@ function createModal(data) {
 
     data.forEach(item => {
       const link = document.createElement('a');
-      link.href = `/post.${item.post_id}`;
+      link.href = `/post/${item.post_id}`;
       const notificationCard = document.createElement('div');
       notificationCard.classList.add('notification__card');
 

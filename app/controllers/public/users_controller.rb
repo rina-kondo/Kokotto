@@ -26,8 +26,11 @@ class Public::UsersController < ApplicationController
   def withdrawal
     @user = current_user
     if @user.update(is_deleted: true)
-      redirect_to root_path
+      reset_session
+      flash[:notice] = "退会処理を実行しました"
+      redirect_to about_path
     else
+      flash[:notice] = "退会処理を中断しました"
       render :edit
     end
   end

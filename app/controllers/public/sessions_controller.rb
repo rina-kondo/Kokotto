@@ -22,7 +22,7 @@ class Public::SessionsController < Devise::SessionsController
     return if !@user
     if @user.valid_password?(params[:user][:password])
       if @user.is_deleted
-        redirect_to new_user_registration_path, danger: "退会済みのアカウントです。ログインできません。"
+        redirect_to new_user_registration_path, notice: "退会済みのアカウントです。ログインできません。"
       else
         sign_in(@user)
         redirect_to posts_path(current_user), notice: "ログインしました。"

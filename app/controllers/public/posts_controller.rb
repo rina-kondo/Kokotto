@@ -25,12 +25,19 @@ class Public::PostsController < ApplicationController
     long_start = current_user.now_longitude - 0.003
     long_end = current_user.now_longitude + 0.003
 
-    @posts = Post.where(user_id: 1).or(Post.where(latitude: lat_start..lat_end, longitude: long_start..long_end)).order(created_at: :desc).page(params[:page]).per(10)
+    @posts = Post.joins(:user)
+                 .where(users: { is_deleted: false })
+                 .where("user_id = 1 OR (latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?)",
+                        lat_start, lat_end, long_start, long_end)
+                 .order(created_at: :desc)
+                 .page(params[:page]).per(10)
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(5)
+    @comments = @post.comments.joins(:user)
+                              .order(created_at: :desc)
+                              .page(params[:page]).per(5)
   end
 
   def destroy
