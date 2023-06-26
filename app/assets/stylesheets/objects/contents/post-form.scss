@@ -29,19 +29,17 @@
     flex-direction: column;
     max-width: 70%;
 
+    &--comment{
+      display: flex;
+      flex-direction: column;
+      max-width: 90%;
+    }
+
     &Textform{
       display: flex;
       word-wrap: break-all;
       max-width: 100%;
       width: 500px;
-      height: 100px;
-    }
-
-    &Textform--comment{
-      display: flex;
-      word-wrap: break-all;
-      max-width: 100%;
-      width: 620px;
       height: 100px;
     }
 

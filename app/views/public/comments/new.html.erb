@@ -2,11 +2,11 @@
 <%= form_with model: @comment, url: comments_path(params[:post_id]) do |f| %>
 <div class="form">
   <div class="form__flame">
-    <div class="form__content">
-      <%= f.text_field :text, autofocus: true, placeholder: "コメントしよう", class: "form__contentTextform--comment" %>
-    </div>
-    <div class="form__btn">
-      <%= f.submit "コメントする", class: "btn" %>
+    <div class="form__content--comment">
+      <%= f.text_field :text, autofocus: true, placeholder: "コメントしよう", class: "form__contentTextform" %>
+      <div class="form__btn">
+        <%= f.submit "コメントする", class: "btn" %>
+      </div>
     </div>
   </div>
 </div>

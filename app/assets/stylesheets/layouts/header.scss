@@ -20,6 +20,7 @@
 
         a {
           align-items: flex-end;
+          color: var(--color-blue);
         }
 
         p {
@@ -39,6 +40,7 @@
 
         a {
           align-items: flex-end;
+          color: var(--color-blue);
         }
 
         p {
@@ -62,6 +64,7 @@
 
         a {
           @include paragraph3;
+          color: var(--color-blue);
           display: flex;
           gap: 6px;
           align-items: center;
