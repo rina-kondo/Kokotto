@@ -8,28 +8,26 @@
   filter: drop-shadow(6px 8px 6px rgba(#CEA0C1 , 0.4));
 
   &__flame{
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    gap: 10px;
-    overflow: hidden;
+    justify-content: center;
   }
 
   &__tag {
     color: var(--color-purple);
     text-align: center;
     justify-content: center;
-    display: flex;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    width: 30%;
+    height: auto;
   }
 
   &__content{
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
-    max-width: 100%;
+    max-width: 70%;
 
     &Textform{
       display: flex;
@@ -53,10 +51,6 @@
       display: flex;
       max-width: 100%;
     }
-  }
-
-  &__btn{
-    margin-left: 75%;
   }
 }
 

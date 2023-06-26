@@ -3,10 +3,11 @@
   align-items: center;
   padding: 2px 10px;
   background-color: var(--color-white);
-  border: 3px solid var(--color-puple);
+  border: none;
   border-radius: 4px;
   box-shadow: none;
   transition: box-shadow 0.3s var(--ease-out-quad);
+  font-size: 16px;
 
   &:hover {
     box-shadow: 0 4px 8px rgba(#CEA0C1, 0.5);

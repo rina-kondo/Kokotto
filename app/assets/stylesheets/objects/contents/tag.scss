@@ -6,6 +6,7 @@
   border: 3px solid var(--color-puple);
   border-radius: 8px;
   box-shadow: none;
+  justify-content: center;
   transition: box-shadow 0.3s var(--ease-out-quad);
 
   &:hover {

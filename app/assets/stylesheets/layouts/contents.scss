@@ -1,18 +1,11 @@
-@mixin contents {
-  .contents {
-    @content;
-  }
-}
-
-@include contents {
+.contents {
   display: flex;
   flex-grow: 1;
   padding-block-start: 20px;
-  padding-bottom: 20px;
-  min-height: 100vh;
 
   @media screen and (max-width: 959px) {
     /* 959px以下に適用されるCSS（タブレット用） */
+    /* メニューバーの位置調整 */
     flex-direction: column;
   }
 

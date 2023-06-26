@@ -8,7 +8,9 @@
         <%= post.text %>
       </p>
       <div class="card__contentImage">
-        <%= image_tag post.display_image(200,200) %>
+        <% if post.image.attached? %>
+          <%= image_tag post.image %>
+        <% end %>
       </div>
     </div>
   </div>
