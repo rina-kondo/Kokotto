@@ -27,9 +27,17 @@
 
   &__btn-list{
     display: flex;
-    flex-wrap: wrap;
     margin: 0 auto;
+    flex-direction: row;
     gap: 15px;
+    text-align: center;
+
+    @media screen and (max-width: 500px) {
+      /* btnリスト幅時点で切り替え */
+      flex-direction: column;
+      gap: 0px;
+    }
+
   }
 
   &__content{
@@ -44,6 +52,11 @@
     margin-top: 10px;
     background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
     border-radius: 32% 68% 68% 32% / 74% 49% 51% 26%;
+
+    @media screen and (max-width: 480px) {
+      /* 480px以下に適用されるCSS（スマホ用） */
+      display: none;
+    }
   }
 
   &__kokotto{
@@ -58,13 +71,16 @@
   &__images{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
   }
 
   .item-image-list{
     display: flex;
     flex-direction: column;
-    max-width: 200px;
+    width: 20%;
+    max-width: 150px;
   }
 
   .item-image1{
@@ -107,7 +123,7 @@
 
   .girl-img{
     display: inline-box;
-    max-width: 200px;
+    width: 40%;
     text-align: center;
     height: auto;
     margin: auto 0;
@@ -120,6 +136,11 @@
     margin-top: 10px;
     background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
     border-radius: 66% 34% 45% 55% / 42% 41% 59% 58% ;
+
+    @media screen and (max-width: 480px) {
+      /* 480px以下に適用されるCSS（スマホ用） */
+      display: none;
+    }
   }
 
   &__security{

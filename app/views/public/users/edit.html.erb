@@ -1,16 +1,18 @@
-<%= form_with model: @user, url: update_user_path do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
+<section>
+  <%= form_with model: @user, url: update_user_path do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
 
-  <%= f.submit "更新", class: "btn-s-light" %>
-<% end %>
+    <%= f.submit "更新", class: "btn-s-light" %>
+  <% end %>
 
-<%= link_to "アカウント削除", withdrawal_path(current_user), method: :patch, data:{ confirm: "本当に消しますか？"} %>
+  <%= link_to "アカウント削除", withdrawal_path(current_user), method: :patch, data:{ confirm: "本当に消しますか？🥺"},  class: "btn-s-dark" %>
 
-<%= javascript_pack_tag 'notification-click.js' %>
+  <%= javascript_pack_tag 'notification-click.js' %>
+</section>

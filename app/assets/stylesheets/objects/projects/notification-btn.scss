@@ -5,11 +5,12 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
+  font-size: 17px;
 
   &--alert {
     background-color: red;
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     position: absolute;
     top: 0;
