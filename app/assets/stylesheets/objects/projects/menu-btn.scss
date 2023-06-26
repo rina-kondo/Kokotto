@@ -3,7 +3,14 @@
 .menu{
   &__list{
     position: sticky;
-    top: 0;
+    top: 10px;
+
+    @media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット&携帯用） */
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
   }
 
   &__icon{

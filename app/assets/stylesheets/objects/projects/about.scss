@@ -118,10 +118,7 @@
     min-width: 100px;
     max-height: 90px;
     margin-top: 10px;
-    background: #ee9ca7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
     border-radius: 66% 34% 45% 55% / 42% 41% 59% 58% ;
   }
 

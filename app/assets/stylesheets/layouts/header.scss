@@ -8,7 +8,6 @@
   justify-content: space-between;
   width: 100%;
   height: 70px;
-  padding: 0 5px;
 
   @media screen and (max-width: 959px) {
     /* 959px以下に適用されるCSS（タブレット用） */
@@ -50,7 +49,7 @@
   }
 
   &__Nav {
-     margin-left: auto;
+    margin-left: 10px;
 
     &List {
       display: flex;

@@ -1,7 +1,18 @@
 @import '../foundation/variable';
 
 .menu{
+  max-width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+
+  @media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット&携帯用） */
     display: flex;
-    flex-direction: column;
-    padding: 30px;
+    flex-direction: row;
+    margin: 0 auto;
+    position: sticky;
+    bottom: 0;
+  }
 }

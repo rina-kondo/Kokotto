@@ -5,9 +5,15 @@
 }
 
 @include contents {
-  display:flex;
+  display: flex;
   flex-grow: 1;
   padding-block-start: 20px;
   padding-bottom: 20px;
   min-height: 100vh;
+
+  @media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット用） */
+    flex-direction: column;
+  }
+
 }
