@@ -31,7 +31,7 @@ function displayImages(imagePaths) {
   imageContainer.innerHTML = '';
 
   imagePaths.forEach(imagePath => {
-    const img = createImageElement(`/assets/${imagePath}`, 100, 100);
+    const img = createImageElement(`/assets/tag/${getBaseName(imagePath)}.jpg`, 100, 100);
     img.classList.add(getBaseName(imagePath), 'tag');
     imageContainer.appendChild(img);
   });
