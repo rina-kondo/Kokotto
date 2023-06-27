@@ -7,12 +7,18 @@
   </li>
 </ol>
 
-<table class="admin__table-container">
+<div class="admin__user-headline">
+  <div class="title__circle--h2"></div>
+  <div class="admin__title">
+    <h1 class='title__text'>User List</h1>
+  </div>
+</div>
+
+<table>
   <thead>
     <tr>
       <th>ユーザー名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
+      <th class="table-optional-s">メールアドレス</th>
       <th></th>
       <th class="table-column-optional"></th>
     </tr>
@@ -20,24 +26,22 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <th>
+        <td>
           <%= link_to admin_user_path(user), class: "admin__user-link" do %>
             <%= user.name %>
           <% end %>
-        </th>
-        <th><%= user.email %></th>
+        </td>
+        <td class="table-optional-s"><%= user.email %></td>
         <% if user.is_deleted %>
-          <th class="invalid-user">退会</th>
-          <th><%= link_to "有効に切り替え", admin_reactivate_path(user.id), method: :patch, class: "btn-s-notice" %></th>
+          <td class="invalid-user">退会</td>
         <% else %>
-          <th class="active-user">有効</th>
-          <th><%= link_to "退会に切り替え", admin_deactivate_path(user.id), method: :patch, class: "btn-s-danger" %></th>
+          <td class="active-user">有効</td>
         <% end %>
-        <th class="table-column-optional">
+        <td class="table-optional-m">
           <%= link_to admin_user_path(user), class: "btn-s-light" do %>
             詳細
           <% end %>
-        </th>
+        </td>
       </tr>
     <% end %>
   </tbody>

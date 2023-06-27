@@ -1,20 +1,28 @@
-.admin__table-container {
-  overflow-x: auto;
-  width: 100%;
-}
-
 table {
-  min-width: 600px;
-  width: 100%;
-  border-collapse: collapse;
+  margin: 10px;
 }
 
-@media screen and (max-width: 700px) {
-  .table-column-optional {
+th, td {
+  text-align: start;
+  max-width: 100px;
+  width: auto;
+  overflow-wrap: break-word;
+  overflow: auto;
+}
+
+@media screen and (max-width: 959px) {
+  /* 959px以下に適用されるCSS（タブレット用） */
+  .table-optional-m {
     display: none;
   }
 }
 
+@media screen and (max-width: 480px) {
+  /* 480px以下に適用されるCSS（携帯用） */
+  .table-optional-s {
+    display: none;
+  }
+}
 
 .admin{
   &__user-link{
@@ -27,6 +35,7 @@ table {
 
   &__user-headline{
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     align-items: center;
   }
@@ -46,7 +55,7 @@ table {
 .active-user{
   display: inline-block;
   padding: 0 20px;
-  margin: 10px 0 10px 10px;
+  margin: 5px 0 5px 0;
   height: 22px;
   font-weight: 600;
   border-radius: 30px;
@@ -58,7 +67,7 @@ table {
 .invalid-user{
   display: inline-block;
   padding: 0 20px;
-  margin: 10px 0 10px 10px;
+  margin: 5px 0 5px 0;
   height: 22px;
   font-weight: 600;
   border-radius: 30px;
