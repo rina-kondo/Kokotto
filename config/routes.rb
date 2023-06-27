@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     get 'user/information/edit', to: 'users#edit', as: 'edit_user'
     get 'user/liked_posts', to: 'users#liked_posts', as: 'liked_posts'
     patch 'user/information', to: 'users#update', as: 'update_user'
-    get 'posts/image_paths', to: 'posts#image_paths'
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resource :like, only: [:create, :destroy]
     end

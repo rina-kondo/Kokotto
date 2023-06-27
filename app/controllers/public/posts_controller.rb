@@ -48,14 +48,6 @@ class Public::PostsController < ApplicationController
     end
   end
 
-  def image_paths
-    category = params[:category]
-    image_paths = image_assets(category)
-    respond_to do |format|
-      format.json { render json: image_paths }
-    end
-  end
-
   private
   def user_location_params
     params.permit(:latitude, :longitude, :text, :image, :tag_name)

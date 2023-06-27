@@ -4,4 +4,13 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+
+  &--inactive{
+    @extend .tag-list;
+    display: none;
+  }
+
+  &--active{
+    @extend .tag-list;
+  }
 }

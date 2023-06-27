@@ -12,29 +12,14 @@ function setupCategoryDisplay() {
   });
 }
 
-async function handleCategoryClick(category) {
-  const imagePaths = await fetchImagePaths(category);
-  displayImages(imagePaths);
-  setupTagSelection();
-}
-
-async function fetchImagePaths(category) {
-  const response = await fetch(`/posts/image_paths?category=${encodeURIComponent(category)}`);
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return await response.json();
-}
-
-function displayImages(imagePaths) {
-  const imageContainer = document.getElementById('imageContainer');
-  imageContainer.innerHTML = '';
-
-  imagePaths.forEach(imagePath => {
-    const img = createImageElement(`/assets/tag/${getBaseName(imagePath)}.jpg`, 100, 100);
-    img.classList.add(getBaseName(imagePath), 'tag');
-    imageContainer.appendChild(img);
-  });
+function handleCategoryClick(category) {
+  console.log(category);
+  const activetagList = document.querySelector('.tag-list--active')
+  activetagList.classList.remove('tag-list--active');
+  activetagList.classList.add('tag-list--inactive');
+  const targetTagList = document.querySelector(`.${category}`);
+  targetTagList.classList.remove('tag-list--inactive');
+  targetTagList.classList.add('tag-list--active');
 }
 
 function setupTagSelection() {

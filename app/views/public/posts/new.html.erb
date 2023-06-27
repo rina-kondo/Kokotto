@@ -29,11 +29,14 @@
     <button class="category">other</button>
   </div>
 
-  <div class="tag-list" id="imageContainer">
-    <% image_assets("feeling").each do |tag| %>
-      <%= image_tag tag, size: "100x100", class: "tag #{tag.split('/').pop().split('.')[0]}" %>
-    <% end %>
-  </div>
+  <!--posts_helperでsize:100x100に指定-->
+  <div class="tag-list--active feeling"><% display_image_tags("feeling") %></div>
+  <div class="tag-list--inactive food"><% display_image_tags("food") %></div>
+  <div class="tag-list--inactive hobby"><% display_image_tags("hobby") %></div>
+  <div class="tag-list--inactive animal"><% display_image_tags("animal") %></div>
+  <div class="tag-list--inactive life"><% display_image_tags("life") %></div>
+  <div class="tag-list--inactive nature"><% display_image_tags("nature") %></div>
+  <div class="tag-list--inactive other"><% display_image_tags("other") %></div>
 </div>
 
 <%= javascript_pack_tag 'display-select-tag.js' %>
