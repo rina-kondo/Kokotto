@@ -28,7 +28,7 @@ class Public::UsersController < ApplicationController
     if @user.update(is_deleted: true)
       reset_session
       flash[:notice] = "退会処理を実行しました"
-      redirect_to about_path
+      redirect_to root_path
     else
       flash[:notice] = "退会処理を中断しました"
       render :edit
@@ -44,7 +44,7 @@ class Public::UsersController < ApplicationController
     end
   end
 
- private
+  private
 
   def user_params
     params.require(:user).permit(:name, :email, :now_latitude, :now_longitude)
