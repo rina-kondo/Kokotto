@@ -4,55 +4,56 @@
        <span class="logo--Accent">Koko</span>tto
     <% end %>
   </div>
-    <% if user_signed_in? %>
-      <nav class="header__Nav">
-        <ul class="header__NavList" >
-          <li class="header__NavListItem">
-            <div class="notification-button" id="notification-button" role="button" aria-label="Show notifications">
-              <% if current_user.unread_notifications.exists? %>
-                <div class="notification-button--alert">︎</div>
-                <i class="fa-solid fa-bell"></i>
-              <% else %>
-                <i class="fa-solid fa-bell"></i>
-              <% end %>
-            </div>
-          </li>
-          <li class="header__NavListItem">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__NavListItemLink" %>
-          </li>
-        </ul>
-      </nav>
-    <% elsif admin_signed_in? %>
-      <nav class="header__Nav">
-        <ul class="header__NavList" %>
-          <li class="header__NavListItem">
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header__NavListItemLink" %>
-          </li>
-        </ul>
-      </nav>
-    <% else %>
-      <nav class="header__Nav--s" id="overlay">
-        <ul class="header__NavList--s" %>
-          <li class="header__NavListItem--s">
-            <%= link_to root_path, class: "header__NavListItemLink--s" do %> What's Kokotto?<% end %>
-          </li>
-          <li class="header__NavListItem--s">
-            <%= link_to "新規登録", new_user_registration_path, class: "header__NavListItemLink--s" %>
-          </li>
-          <li class="header__NavListItem--s">
-            <%= link_to "ログイン", new_user_session_path, class: "header__NavListItemLink--s" %>
-          </li>
-          <li class="header__NavListItem--s">
-            <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post, class: "header__NavListItemLink--s" %>
-          </li>
-        </ul>
-      </nav>
-    <% end %>
+  <% if user_signed_in? %>
+    <nav class="header__Nav">
+      <ul class="header__NavList" >
+        <li class="header__NavListItem">
+          <div class="notification-button" id="notification-button" role="button" aria-label="Show notifications">
+            <% if current_user.unread_notifications.exists? %>
+              <div class="notification-button--alert">︎</div>
+              <i class="fa-solid fa-bell"></i>
+            <% else %>
+              <i class="fa-solid fa-bell"></i>
+            <% end %>
+          </div>
+        </li>
+        <li class="header__NavListItem">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__NavListItemLink" %>
+        </li>
+      </ul>
+    </nav>
+  <% elsif admin_signed_in? %>
+    <nav class="header__Nav">
+      <ul class="header__NavList" %>
+        <li class="header__NavListItem">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header__NavListItemLink" %>
+        </li>
+      </ul>
+    </nav>
+  <% else %>
+    <nav class="header__Nav--s" id="overlay">
+      <ul class="header__NavList--s" %>
+        <li class="header__NavListItem--s">
+          <%= link_to root_path, class: "header__NavListItemLink--s" do %> What's Kokotto?<% end %>
+        </li>
+        <li class="header__NavListItem--s">
+          <%= link_to "新規登録", new_user_registration_path, class: "header__NavListItemLink--s" %>
+        </li>
+        <li class="header__NavListItem--s">
+          <%= link_to "ログイン", new_user_session_path, class: "header__NavListItemLink--s" %>
+        </li>
+        <li class="header__NavListItem--s">
+          <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post, class: "header__NavListItemLink--s" %>
+        </li>
+      </ul>
+    </nav>
+  <% end %>
   <% unless user_signed_in? || admin_signed_in? %>
     <div class="header__Hamburger" id="toggle">
       <span class="top"></span>
       <span class="middle"></span>
       <span class="bottom"></span>
     </div>
+    <%= javascript_pack_tag 'hamburger.js' %>
   <% end %>
 </header>

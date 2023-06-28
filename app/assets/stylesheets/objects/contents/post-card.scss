@@ -22,13 +22,39 @@
 
   &__tag {
     display: flex;
-    align-items: start;
+    flex-direction: column;
+    align-items: center;
     width: 30%;
     height: auto;
 
     &Img {
       margin: 0 auto;
       opacity: 0.8;
+    }
+  }
+
+  &__usertag{
+    display: inline-block;
+    color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 5px auto;
+
+    @media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット用） */
+      font-size: 12px;
+    }
+
+    @media screen and (max-width: 480px) {
+      /* 480px以下に適用されるCSS（携帯用） */
+      font-size: 10px;
+    }
+
+    &--official{
+      @extend .card__usertag;
+      color: var(--color-red);
+      border: 1px solid var(--color-red);
     }
   }
 
