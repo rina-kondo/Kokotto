@@ -1,0 +1,32 @@
+.Notfound{
+  &__content{
+    display: flex;
+    width: 380px;
+    flex-direction: row;
+    align-items: end;
+  }
+
+  &__balloon{
+    min-width: 100px;
+    position: relative;
+    margin-bottom: 90px;
+
+    &Img{
+      min-width: 100px;
+    }
+
+    &Text{
+      position: absolute;
+      top: 6px;
+      left: 15px;
+      z-index: 100;
+      color: var(--color-black);
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  &__nekoImg{
+    max-width: 280px;
+  }
+}
