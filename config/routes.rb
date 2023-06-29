@@ -40,6 +40,4 @@ Rails.application.routes.draw do
     resources :comments, only: [:show, :destroy]
   end
 
-  get '*path', controller: 'application', action: 'render_404'
-
 end
