@@ -38,8 +38,7 @@
 
   <div>アカウント開始日: <%= l @user.created_at, format: :short %></div>
   <div>
-    メールアドレス:
-    <%= form.text_field :email %>
+    メールアドレス:<%= @user.email %>
   </div>
 
   <div class="admin__editbtn-list">

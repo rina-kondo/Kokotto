@@ -15,7 +15,6 @@ async function setup() {
 }
 
 async function onButtonClick(event) {
-  console.log("button clicked");
   const btn = event.target;
   try {
     btn.disabled = true;

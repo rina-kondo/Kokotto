@@ -48,10 +48,12 @@
         <%= post.comments.count %>
       <% end %>
     </div>
-    <div class="card__summaryItem">
-      <i class="fas fa-map-marker-alt"></i>
-      <%= post.prefecture_city %>
-    </div>
+    <% if post.user_id != 1 %>
+      <div class="card__summaryItem">
+        <i class="fas fa-map-marker-alt"></i>
+        <%= post.prefecture_city %>
+      </div>
+    <% end %>
     <% if post.user_id == current_user.id %>
       <div class="card__summaryItem">
         <%= link_to post_path(post.id), method: :delete do %>
