@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   validates :text, presence: true, length: {maximum:100}
   validates :latitude, presence: true
   validates :longitude, presence: true
+  validates :tag_name, presence: true
 
   def display_image(width,height)
     image.attached? ? image.variant(resize_to_limit: [width, height]).processed : ""

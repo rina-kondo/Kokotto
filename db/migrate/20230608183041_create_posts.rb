@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.text :tag_name, null: false
       t.float :latitude, null: false
       t.float :longitude, null: false
+      t.text :prefecture_city
       t.timestamps
     end
   end

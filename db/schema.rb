@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2023_06_17_204350) do
     t.text "tag_name", null: false
     t.float "latitude", null: false
     t.float "longitude", null: false
+    t.text "prefecture_city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
