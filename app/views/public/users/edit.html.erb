@@ -1,12 +1,16 @@
 <section>
+  <div class="title">
+    <div class="title__circle--h2"></div>
+    <h2 class='title__text'>User Infomatin</h3>
+  </div>
   <%= form_with model: @user, url: update_user_path do |f| %>
     <div class="field">
-      <%= f.label :name %><br />
+      <%= f.label :name %>:
       <%= f.text_field :name %>
     </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
+    <div>
+      email:
+      <%= @user.email %>
     </div>
 
     <%= f.submit "更新", class: "btn-s-light" %>

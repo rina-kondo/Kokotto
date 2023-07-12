@@ -52,7 +52,7 @@ class Public::UsersController < ApplicationController
 
   def ensure_guest_user
     @user = User.find(current_user.id)
-    if current_user.name == "guest_user"
+    if current_user.name == "guestuser"
       redirect_to root_path
     end
   end
