@@ -15,6 +15,7 @@ async function setup() {
 }
 
 async function onButtonClick(event) {
+  toggleLoading(true);
   const btn = event.target;
   try {
     btn.disabled = true;
@@ -45,7 +46,22 @@ async function onButtonClick(event) {
     displayFlashMessage("通信に失敗しました");
   } finally {
     btn.disabled = false;
+    toggleLoading(false);
   }
+}
+
+function toggleLoading(is_inview){
+  const loadingScreen = document.querySelector('.loading');
+  if (is_inview === true){
+    loadingScreen.classList.add('inview');
+  }else{
+    loadingScreen.classList.remove('inview');
+  }
+}
+
+function outviewLoading(){
+  const loadingScreen = document.querySelector('.loading');
+  loadingScreen.classList.add('inview');
 }
 
 function createFormData({ text, tag, image, lat, lng, prefectureAndCity }) {

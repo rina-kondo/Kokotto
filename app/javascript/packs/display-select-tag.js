@@ -13,7 +13,6 @@ function setupCategoryDisplay() {
 }
 
 function handleCategoryClick(category) {
-  console.log(category);
   const activetagList = document.querySelector('.tag-list--active')
   activetagList.classList.remove('tag-list--active');
   activetagList.classList.add('tag-list--inactive');

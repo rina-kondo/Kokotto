@@ -115,7 +115,7 @@
       visibility: hidden;
 
       .open & {
-        animation: fadeInRight .3s var(--ease-in-out) forwards;
+        animation: fadeInTop .3s var(--ease-in-out) forwards;
 
         &:nth-of-type(1) {
           animation-delay: .28s;

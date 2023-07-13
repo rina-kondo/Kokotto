@@ -1,0 +1,54 @@
+.loading{
+  background-image: linear-gradient(120deg, #fdfbfb -20%, #ebedee 120%);
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  z-index: 100;
+  opacity: 0;
+  position: absolute;
+  transform: translateY(-100vh);
+  transition: opacity 2s, transform .8s;
+  overflow: hidden;
+
+  &.inview{
+    padding-top: 100px;
+    position: sticky;
+    top: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .8s, transform .8s;
+  }
+
+  &__text{
+    width: 100%;
+    font: var(--font-logo);
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--color-black);
+
+    & .char {
+      display: inline-block;
+      animation: charsAnimate 1.3s infinite var(--ease-out-quad) forwards;
+
+      @for $i from 1 through 11 {
+        &:nth-child(#{$i}) {
+          animation-delay: $i * 0.03s;
+        }
+      }
+    }
+  }
+
+  &__image{
+    width: 40%;
+  }
+}
+
+@keyframes charsAnimate {
+  0%, 77%,100% {
+    transform: translateY(0%);
+  }
+
+  88% {
+    transform: translateY(-40%);
+  }
+}
