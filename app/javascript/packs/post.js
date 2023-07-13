@@ -59,11 +59,6 @@ function toggleLoading(is_inview){
   }
 }
 
-function outviewLoading(){
-  const loadingScreen = document.querySelector('.loading');
-  loadingScreen.classList.add('inview');
-}
-
 function createFormData({ text, tag, image, lat, lng, prefectureAndCity }) {
   const formData = new FormData();
   formData.append('text', text);

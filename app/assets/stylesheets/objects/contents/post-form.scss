@@ -44,10 +44,31 @@
     }
 
     &Imageform{
-      color: car(--color-black);
+      color: var(--color-black);
       margin-top: 10px;
       display: flex;
       max-width: 100%;
+    }
+  }
+
+  &__charCount{
+    color: var(--color-purple);
+    display: flex;
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    padding-right: 9%;
+
+    &--comment{
+      color: var(--color-purple);
+      display: flex;
+      position: absolute;
+      top: 90px;
+      right: 0px;
+      padding-right: 15%;
+      @media screen and (max-width: 639px) {
+        padding-right: 8%;
+      }
     }
   }
 }

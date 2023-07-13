@@ -4,6 +4,7 @@
   <div class="form__flame">
     <div class="form__content--comment">
       <%= f.text_field :text, autofocus: true, placeholder: "コメントしよう", class: "form__contentTextform" %>
+      <div id="charCount" class="form__charCount--comment">0/100 文字</div>
       <div class="form__btn">
         <%= f.submit "コメントする", class: "btn" %>
       </div>
@@ -13,3 +14,4 @@
 <% end %>
 
 <%= javascript_pack_tag 'notification-click.js' %>
+<%= javascript_pack_tag "char-counter.js" %>

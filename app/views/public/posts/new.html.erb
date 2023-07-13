@@ -7,6 +7,7 @@
     <div class="form__content">
       <input class="form__contentTextform", id="input-text", type="text", autofocus: true, placeholder="つぶやこう" />
       <input class="form__contentImageform", id="input-image", type="file", accept=".jpg,.png,.JPEG,.PNG">
+      <div id="charCount" class="form__charCount">0/100 文字</div>
       <div class="form__btn">
         <button class="btn", id="btn">つぶやく</button>
       </div>
@@ -41,4 +42,5 @@
 
 <%= javascript_pack_tag 'display-select-tag.js' %>
 <%= javascript_pack_tag "post.js" %>
+<%= javascript_pack_tag "char-counter.js" %>
 <%= javascript_pack_tag 'notification-click.js' %>
