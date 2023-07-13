@@ -7,7 +7,7 @@
   opacity: 0;
   position: absolute;
   transform: translateY(-100vh);
-  transition: opacity 2s, transform .8s;
+  transition: opacity .2s, transform .8s;
   overflow: hidden;
 
   &.inview{
@@ -16,7 +16,7 @@
     top: 0;
     opacity: 1;
     transform: translateY(0);
-    transition: opacity .8s, transform .8s;
+    transition: opacity 3s, transform .8s;
   }
 
   &__text{
