@@ -2,21 +2,21 @@
   background-image: linear-gradient(120deg, #fdfbfb -20%, #ebedee 120%);
   width: 100%;
   height: 100vh;
+  max-height: 100%;
   text-align: center;
   z-index: 100;
   opacity: 0;
   position: absolute;
-  transform: translateY(-100vh);
+  transform: translateY(-200vh);
   transition: opacity .2s, transform .8s;
   overflow: hidden;
 
   &.inview{
-    padding-top: 100px;
-    position: sticky;
+    padding: 150px 0;
     top: 0;
     opacity: 1;
-    transform: translateY(0);
-    transition: opacity 3s, transform .8s;
+    transform: translateY(0%);
+    transition: opacity 1.5s, transform .8s;
   }
 
   &__text{
